@@ -1,1 +1,11 @@
 <p>navbar works!</p>
+<nav>
+  <ul>
+    <li [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</li>
+    <li [routerLink]="['/login']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">login</li>
+    <li [routerLink]="['/signup']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">signup</li>
+    <li [routerLink]="['/utenti']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">utenti</li>
+    <li [routerLink]="['/fatture']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">fatture</li>
+    <li [routerLink]="['/clienti']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">clienti</li>
+  </ul>
+</nav>
