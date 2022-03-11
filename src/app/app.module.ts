@@ -12,6 +12,7 @@ import { UtentiPage } from './pages/utenti/utenti.page';
 import { ClientiPage } from './pages/clienti/clienti.page';
 import { LoginPage } from './auth/login/login.page';
 import { SignupPage } from './auth/signup/signup.page';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -62,6 +63,7 @@ const routes: Routes = [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(routes),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
