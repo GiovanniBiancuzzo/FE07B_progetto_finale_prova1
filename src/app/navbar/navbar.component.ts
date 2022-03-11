@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit {
   }
 
   onLogout() {
-
+  //logout service
     this.accordion.closeAll()
     this.router.navigate(['/login']);
   }

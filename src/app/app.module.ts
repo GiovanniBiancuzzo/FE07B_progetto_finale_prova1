@@ -14,7 +14,8 @@ import { LoginPage } from './auth/login/login.page';
 import { SignupPage } from './auth/signup/signup.page';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './material/material.module';//tutto m
+import { MaterialModule } from './material/material.module';
+import { ContattiPage } from './pages/contatti/contatti.page';//tutto m
 
 
 
@@ -44,6 +45,10 @@ const routes: Routes = [
     component: ClientiPage,
   },
   {
+    path:'contatti',
+    component: ContattiPage,
+  },
+  {
     path:'**',
     redirectTo: '/'
   }
@@ -59,7 +64,8 @@ const routes: Routes = [
     UtentiPage,
     ClientiPage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    ContattiPage
   ],
   imports: [
     BrowserModule,
