@@ -1,38 +1,24 @@
-import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
-import {
-  animate,
-  state,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations';
+import { Component, AfterViewChecked, OnInit } from '@angular/core';
+
 import { FattureService } from './fatture.service';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatTableDataSource } from '@angular/material/table';
-import { Observable } from 'rxjs';
+
 import { Fattura } from 'src/app/models/fattura';
 
 @Component({
   templateUrl: './fatture.page.html',
   styleUrls: ['./fatture.page.scss'],
-  //(animations: [
-  //(  trigger('detailExpand', [
-  //(    state('collapsed', style({ height: '0px', minHeight: '0' })),
-  //(    state('expanded', style({ height: '*' })),
-  //(    transition(
-  //(      'expanded <=> collapsed',
-  //(      animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')
-  //(    ),
-  //(  ]),
-  //(],
+
 })
 export class FatturePage implements OnInit {
 
+  fatture!: Fattura[];
   pagina: number = 0;
   currentIndex: number = this.pagina;
-  fatture!: Fattura[];
-  displayedColumns = ['id','cliente.ragioneSociale', 'importo', 'stato.nome'];
-  //expandedElement!: Fattura | null;
+  displayedColumns = ['id', 'cliente.ragioneSociale', 'importo', 'stato.nome'];
+
+  data = new Date(); //gestione data in fondo alla pagina
+  ora = `${this.data.getHours()}:${this.data.getMinutes()}:${this.data.getSeconds()}`;
+  giorno = `${this.data.getDate()}/${this.data.getMonth()}/${this.data.getFullYear()}`;
 
   constructor(public fattureSrv: FattureService) {}
 
@@ -48,12 +34,15 @@ export class FatturePage implements OnInit {
     });
   }
 
-  ngAfterViewInit() {
-    console.log("dopo caricamento")
+  ngAfterViewChecked() {
+    console.log('dopo caricamento');
   }
 
-  cambiaPagina(currentIndex: number) {
-    this.fattureSrv.getFatture(currentIndex).subscribe({
+  avanzaPagina() {
+    //pagina successiva di fatture
+    this.currentIndex++;
+    console.log(this.currentIndex);
+    this.fattureSrv.getFatture(this.currentIndex).subscribe({
       next: (v) => {
         console.log(v.content);
         this.fatture = v.content;
@@ -62,4 +51,20 @@ export class FatturePage implements OnInit {
       complete: () => console.info('pagina fatture acquisita'),
     });
   }
+
+  indietroPagina() {
+    //pagina precedente di fatture
+    this.currentIndex--;
+    console.log(this.currentIndex);
+    this.fattureSrv.getFatture(this.currentIndex).subscribe({
+      next: (v) => {
+        console.log(v.content);
+        this.fatture = v.content;
+      },
+      error: (e) => console.error(e),
+      complete: () => console.info('pagina fatture acquisita'),
+    });
+  }
+
+  //sistemare prima e ultima pagina
 }

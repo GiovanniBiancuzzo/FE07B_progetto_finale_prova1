@@ -1,3 +1,5 @@
+<h1>Elenco clienti</h1>
+
 <table>
   <mat-table [dataSource]="clienti" class="mat-elevation-z8">
     <ng-container matColumnDef="id">
@@ -24,3 +26,13 @@
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
 </table>
+
+<div id="navigation">
+  <!-- sistemare prima e ultima pagina -->
+  <button mat-raised-button color="accent" (click)="indietroPagina()">Prima pagina</button>
+  <button mat-raised-button color="accent" (click)="indietroPagina()" *ngIf="currentIndex" >Pagina precedente</button>
+  <button mat-raised-button color="accent" (click)="avanzaPagina()">Pagina successiva</button>
+  <button mat-raised-button color="accent" (click)="avanzaPagina()">Ultima pagina</button>
+</div>
+
+<section><em>Aggiornato alle {{ora}} del {{giorno}}</em></section>

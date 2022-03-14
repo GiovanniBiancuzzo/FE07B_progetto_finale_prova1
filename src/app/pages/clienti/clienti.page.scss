@@ -1,6 +1,15 @@
 table,
-#navigation {
+#navigation, h1 {
   width: 80%;
   margin: 30px auto 30px auto;
   text-align: center;
+}
+
+section {
+  text-align:end;
+  width: 90%;
+}
+
+#navigation > button {
+  margin: 0 10px 0;
 }
