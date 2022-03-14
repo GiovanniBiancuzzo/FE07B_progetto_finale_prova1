@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  isLogged = true;
+  isLogged = true;// cancellare dopo implementazione login
   @ViewChild(MatAccordion) accordion!: MatAccordion;
 
   constructor(private router:Router) { }

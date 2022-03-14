@@ -1,1 +1,75 @@
-<p>fatture works!</p>
+<table>
+  <mat-table [dataSource]="fatture" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+      <mat-cell *matCellDef="let fattura"> {{fattura.id}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="cliente.ragioneSociale">
+      <mat-header-cell *matHeaderCellDef> Ragione Sociale </mat-header-cell>
+      <mat-cell *matCellDef="let fattura"> {{fattura.cliente.ragioneSociale}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="importo">
+      <mat-header-cell *matHeaderCellDef> Importo </mat-header-cell>
+      <mat-cell *matCellDef="let fattura"> {{fattura.importo}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="stato.nome">
+      <mat-header-cell *matHeaderCellDef> Stato </mat-header-cell>
+      <mat-cell *matCellDef="let fattura"> {{fattura.stato.nome}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</table>
+
+
+<div id="navigation">
+  <button mat-raised-button (click)="cambiaPagina(0)">Prima pagina</button>
+  <button mat-raised-button (click)="cambiaPagina(pagina-1)" *ngIf="pagina" >Pagina precedente</button>
+  <button mat-raised-button (click)="cambiaPagina(pagina+1)">Pagina successiva</button>
+  <button mat-raised-button (click)="cambiaPagina(4)">Ultima pagina</button>
+</div>
+
+
+<!--
+
+<table mat-table [dataSource]="fatture" multiTemplateDataRows class="mat-elevation-z8">
+  <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">
+    <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+    <td mat-cell *matCellDef="let fattura"> {{fattura[column]}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
+      <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+        <div >
+          <div class="example-element-position"> {{element.id}} </div>
+          <div class="example-element-symbol"> {{element.cliente.ragioneSociale}} </div>
+          <div class="example-element-name"> {{element.importo}} </div>
+          <div class="example-element-weight"> {{element.stato.nome}} </div>
+
+        </div>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let element; columns: displayedColumns;" class="example-element-row"
+    [class.example-expanded-row]="expandedElement === element"
+    (click)="expandedElement = expandedElement === element ? null : element">
+  </tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+</table>
+ -->
+
+<!--
+<mat-paginator [length]="100"
+              [pageSize]="20"
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              showFirstLastButtons
+              aria-label="Select page">
+</mat-paginator> -->

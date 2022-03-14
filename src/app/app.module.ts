@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 import { NavbarComponent } from './navbar/navbar.component';
@@ -12,10 +14,12 @@ import { UtentiPage } from './pages/utenti/utenti.page';
 import { ClientiPage } from './pages/clienti/clienti.page';
 import { LoginPage } from './auth/login/login.page';
 import { SignupPage } from './auth/signup/signup.page';
+import { ContattiPage } from './pages/contatti/contatti.page';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './material/material.module';
-import { ContattiPage } from './pages/contatti/contatti.page';//tutto m
+import { MaterialModule } from './material/material.module';//material module con tutto material
+import { AuthInterceptor } from './auth/auth.interceptor';
+
 
 
 
@@ -72,9 +76,18 @@ const routes: Routes = [
     AppRoutingModule,
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:AuthInterceptor,
+      multi:true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

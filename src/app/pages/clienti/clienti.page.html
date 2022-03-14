@@ -1,1 +1,26 @@
-<p>clienti works!</p>
+<table>
+  <mat-table [dataSource]="clienti" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+      <mat-cell *matCellDef="let cliente"> {{cliente.id}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="ragioneSociale">
+      <mat-header-cell *matHeaderCellDef> Ragione Sociale </mat-header-cell>
+      <mat-cell *matCellDef="let cliente"> {{cliente.ragioneSociale}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="partitaIva">
+      <mat-header-cell *matHeaderCellDef> partitaIva </mat-header-cell>
+      <mat-cell *matCellDef="let cliente"> {{cliente.partitaIva}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="emailContatto">
+      <mat-header-cell *matHeaderCellDef> emailContatto </mat-header-cell>
+      <mat-cell *matCellDef="let cliente"> {{cliente.emailContatto}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</table>

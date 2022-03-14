@@ -1,1 +1,78 @@
-<p>login works!</p>
+<!-- <div id="loginQuad" class="text-center bg-dark text-white">
+  <h2>FatturaNET</h2>
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <form #form="ngForm" (ngSubmit)="onLogin(form)">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            ngModel
+            name="username"
+            class="form-control"
+            type="username"
+            id="username"
+          />
+        </div>
+        <div class="form-group">
+          <label for="pass">Password</label>
+          <input
+            ngModel
+            name="password"
+            class="form-control"
+            type="password"
+            id="password"
+          />
+        </div>
+        <button
+          class="btn btn-secondary m-3"
+          [disabled]="false"
+          type="submit"
+        >
+          Entra
+        </button>
+      </form>
+
+    </div>
+  </div>
+</div>
+ -->
+
+
+
+
+<div class="login">
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm)">
+    <mat-form-field appearance="outline">
+      <mat-label>Username</mat-label>
+      <input matInput type="text" id="username" [formControl]="usernameVal" formControlName="username"
+        placeholder="Username">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-error *ngIf="usernameVal.hasError('required')">
+        Un username è <strong>obbligatorio</strong>
+      </mat-error>
+      <mat-hint>admin</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Inserisci la password</mat-label>
+      <input matInput id="password" [type]="hide ? 'password' : 'text'" [formControl]="passwordVal"
+      formControlName="password">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error *ngIf="passwordVal.hasError('required')">
+        Una password è <strong>obbligatoria</strong>
+      </mat-error>
+      <mat-hint>111111</mat-hint>
+    </mat-form-field>
+
+    <button mat-raised-button type="submit" [disabled]="!loginForm.valid" color="accent">Accedi</button>
+  </form>
+
+  <p>Non sei ancora registrato? <a [routerLink]="['/signup']">Clicca qui</a></p>
+
+</div>
+
+
+
