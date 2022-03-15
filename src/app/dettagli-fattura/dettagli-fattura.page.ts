@@ -5,34 +5,43 @@ import { Fattura } from '../models/fattura';
 @Component({
   template: `
     <style>
+      #stampa {
+        max-width: 90%;
+        display: flex;
+        justify-content: space-evenly;
+        margin: 30px auto;
+        align-items: center;
+        flex-direction: column;
+      }
+      #stampa>div {
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+      }
+
       #fattura {
         max-width: 90%;
         display: flex;
         flex-direction: column;
         margin: auto;
       }
-
       header {
         text-align: center;
         flex-basis: 1;
       }
-
       main {
         display: flex;
         justify-content: space-around;
-      }
-
-      #stampa {
-        max-width: 90%;
-        display: flex;
-        justify-content: space-evenly;
-        margin: 30px auto;
       }
     </style>
 
     <div id="stampa">
       <h2>Fattura n.{{fatturaId}} di Epic Education Srl</h2>
-      <button (click)="print()" ><mat-icon>print</mat-icon></button>
+      <div>
+        <button mat-raised-button color="accent" (click)="print()" ><mat-icon>print</mat-icon>Stampa</button>
+        <button mat-raised-button color="accent" ><mat-icon>edit</mat-icon>Modifica</button><!-- da finire -->
+        <button mat-raised-button color="accent" ><mat-icon>delete_forever</mat-icon>Elimina</button><!-- da finire -->
+      </div>
     </div>
 
     <div id="fattura">

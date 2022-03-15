@@ -1,18 +1,22 @@
 <div id="header">
   <h1>Elenco fatture</h1>
-  <button (click)="creaFattura()" color="accent" mat-flat-button>Crea fattura</button>
+  <button (click)="creaFattura()" color="accent" mat-flat-button><mat-icon>add</mat-icon> Crea fattura</button>
+</div>
+
+<div id="filtri">
+  <!-- aggiungere filtri per ricerca: non pagate, pagate, per cliente? -->
 </div>
 
 <table>
   <mat-table [dataSource]="fatture" class="mat-elevation-z8">
     <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
-      <mat-cell *matCellDef="let fattura" [routerLink]="['/fatture', fattura.id]"> {{fattura.id}} </mat-cell>
+      <mat-cell matTooltip="Vai alla fattura" [matTooltipPosition]="'left'" *matCellDef="let fattura" [routerLink]="['/fatture', fattura.id]"> {{fattura.id}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="cliente.ragioneSociale">
       <mat-header-cell *matHeaderCellDef> Ragione Sociale </mat-header-cell>
-      <mat-cell *matCellDef="let fattura" [routerLink]="['/clienti', fattura.cliente.id]"> {{fattura.cliente.ragioneSociale}} </mat-cell>
+      <mat-cell matTooltip="Vai al cliente" [matTooltipPosition]="'left'" *matCellDef="let fattura" [routerLink]="['/clienti', fattura.cliente.id]"> {{fattura.cliente.ragioneSociale}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="importo">
@@ -26,10 +30,10 @@
         <mat-form-field>
           <mat-label>Stato</mat-label>
           <mat-select select (valueChange)="onModificaStato($event, fattura)" name="stato" id="stato">
-            <mat-option value="{{fattura.stato.id}}">{{fattura.stato.nome}}</mat-option>
-            <mat-option *ngIf="fattura.stato.id == 1" value="2">PAGATA</mat-option>
-            <mat-option *ngIf="fattura.stato.id == 2" value="1">NON PAGATA</mat-option>
-            <mat-option value="3">ELIMINA</mat-option>
+            <mat-option value="{{fattura.stato.id}}"><mat-icon>edit</mat-icon>{{fattura.stato.nome}}</mat-option>
+            <mat-option *ngIf="fattura.stato.id == 1" value="2"><mat-icon>edit</mat-icon>PAGATA</mat-option>
+            <mat-option *ngIf="fattura.stato.id == 2" value="1"><mat-icon>edit</mat-icon>NON PAGATA</mat-option>
+            <mat-option value="3"><mat-icon>delete_forever</mat-icon>ELIMINA</mat-option>
           </mat-select>
         </mat-form-field>
       </mat-cell>

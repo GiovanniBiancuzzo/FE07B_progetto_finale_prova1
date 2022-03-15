@@ -45,7 +45,7 @@ export class FatturePage implements OnInit {
     console.log('dopo caricamento');
   }
 
-  creaFattura() {
+  creaFattura() {//da finire
     this.fattureSrv.creaFattura;
   }
 
@@ -90,7 +90,7 @@ export class FatturePage implements OnInit {
           nome: 'NON PAGATA',
         };
         fattura.stato = nuovoStato;
-        this.fattureSrv.modificaStato(fattura).subscribe((res) => {
+        this.fattureSrv.modificaStato(fattura).subscribe((res) => {//forse si può passare statofattura
           this.dialog.open(DialogModificaFattureComponent);
         });
         break;

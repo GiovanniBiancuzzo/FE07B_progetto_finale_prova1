@@ -1,26 +1,35 @@
 #header {
   display: flex;
   align-items: center;
-  width: 80%
+  width: 80%;
 }
 
 h1 {
   margin: 20px auto 20px auto;
 }
 
-
 table,
-#navigation{
+#navigation {
   width: 80%;
   margin: 20px auto 20px auto;
   text-align: center;
 }
 
 section {
-  text-align:end;
+  text-align: end;
   width: 90%;
 }
 
 #navigation > button {
   margin: 0 10px 0;
 }
+
+.mat-column-id,
+.mat-column-cliente-ragioneSociale,
+.mat-column-importo {
+  width: 32px;
+  border-right: 1px solid currentColor;
+  margin-right: 24px;
+  text-align: center;
+}
+
