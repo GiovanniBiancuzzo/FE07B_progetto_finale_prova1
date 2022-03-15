@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './auth/auth.interceptor';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
@@ -18,7 +19,15 @@ import { ContattiPage } from './pages/contatti/contatti.page';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';//material module con tutto material
-import { AuthInterceptor } from './auth/auth.interceptor';
+
+import { DialogModificaFattureComponent } from './components/dialog-modifica-fatture.component';
+import { DialogEliminaFattureComponent } from './components/dialog-elimina-fatture.component';
+import { DettagliFatturaPage } from './dettagli-fattura/dettagli-fattura.page';
+import { DettagliClientePage } from './dettagli-cliente/dettagli-cliente.page';
+import { AuthGuard } from './auth/auth.guard';
+import { FattureDaClienteComponent } from './components/fatture-da-cliente.component';
+import { CardFatturaComponent } from './components/card-fattura.component';
+import { CardClienteComponent } from './components/card-cliente.component';
 
 
 
@@ -27,6 +36,7 @@ const routes: Routes = [
   {
     path:'',
     component: HomePage,
+    canActivate: [AuthGuard]
   },
   {
     path:'login',
@@ -39,18 +49,32 @@ const routes: Routes = [
   {
     path:'utenti',
     component: UtentiPage,
+    canActivate: [AuthGuard]
   },
   {
     path:'fatture',
     component: FatturePage,
+    canActivate: [AuthGuard]
+  },
+  {
+    path:'fatture/:id',
+    component: DettagliFatturaPage,
+    canActivate: [AuthGuard]
   },
   {
     path:'clienti',
     component: ClientiPage,
+    canActivate: [AuthGuard]
+  },
+  {
+    path:'clienti/:id',
+    component: DettagliClientePage,
+    canActivate: [AuthGuard]
   },
   {
     path:'contatti',
     component: ContattiPage,
+    canActivate: [AuthGuard]
   },
   {
     path:'**',
@@ -69,7 +93,14 @@ const routes: Routes = [
     ClientiPage,
     LoginPage,
     SignupPage,
-    ContattiPage
+    ContattiPage,
+    DialogModificaFattureComponent,
+    DialogEliminaFattureComponent,
+    DettagliFatturaPage,
+    DettagliClientePage,
+    FattureDaClienteComponent,
+    CardFatturaComponent,
+    CardClienteComponent
   ],
   imports: [
     BrowserModule,

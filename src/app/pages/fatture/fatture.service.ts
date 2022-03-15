@@ -17,15 +17,28 @@ export class FattureService {
     return this.http.get<any>(`${this.url}/api/fatture?page=${pagina}&size=20&sort=id,ASC`);
   }
 
-  dettagliFattura(fattura: Fattura) {//singola fattura
-    return this.http.get<any>(`${this.url}/api/fatture/${fattura.id}`);
+  getFattureDaCliente(id: number) {//fatture corrispondenti ad un determinato utente (id = cliente.id)
+    return this.http.get<any>(`${this.url}/api/fatture/cliente/${id}?page=0&size=200&sort=id,ASC`);
+  }
+
+  getDettagliFattura(id: number) {//singola fattura
+    return this.http.get<any>(`${this.url}/api/fatture/${id}`);
   }
 
   modificaStato(fattura: Fattura) {//per aggiornare si ripassa tutta la fattura con il solo stato cambiato
     return this.http.put<any>(`${this.url}/api/fatture/${fattura.id}`, fattura);
   }
 
-  cancellaFattura(fattura: Fattura) {//cancellazione fattura
-    return this.http.delete<any>(`${this.url}/api/fatture/${fattura.id}`);
+  cancellaFattura(id: number) {//cancellazione fattura
+    return this.http.delete<any>(`${this.url}/api/fatture/${id}`);
   }
+
+  creaFattura(fattura: Fattura) {//per creare una nuova fattura
+    return this.http.post<any>(`${this.url}/api/fatture/${fattura.id}`, fattura);
+  }
+
+  creaFatturaDaCliente(fattura: Fattura) {//per creare una nuova fattura da una pagina cliente
+    return this.http.post<any>(`${this.url}/api/fatture/${fattura.id}`, fattura);
+  }
+
 }

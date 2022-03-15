@@ -4,28 +4,26 @@ import { environment } from 'src/environments/environment';
 import { Cliente } from 'src/app/models/cliente';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ClientiService {
+  url = environment.pathApi;
 
-  url = environment.pathApi
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  getClienti(pagina: Number) {//si ottiene l'ennesima pagina composta da 20 fatture
-    console.log("getClienti")
+  getClienti(pagina: Number) {
+    //si ottiene l'ennesima pagina composta da 20 fatture
+    console.log('getClienti');
     return this.http.get<any>(`${this.url}/api/clienti?page=${pagina}&size=20&sort=id,ASC`);
   }
 
-  dettagliFattura(fattura: Cliente) {//singola fattura
-    return this.http.get<any>(`${this.url}/api/clienti/${fattura.id}`);
-  }
-
-  modificaStato(fattura: Cliente) {//per aggiornare si ripassa tutta la fattura con il solo stato cambiato
+  modificaStato(fattura: Cliente) {
+    //per aggiornare si ripassa tutta la fattura con il solo stato cambiato
     return this.http.put<any>(`${this.url}/api/clienti/${fattura.id}`, fattura);
   }
 
-  cancellaFattura(fattura: Cliente) {//cancellazione fattura
+  cancellaFattura(fattura: Cliente) {
+    //cancellazione fattura
     return this.http.delete<any>(`${this.url}/api/clienti/${fattura.id}`);
   }
 }

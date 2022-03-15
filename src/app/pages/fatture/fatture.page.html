@@ -1,15 +1,18 @@
-<h1>Elenco fatture</h1>
+<div id="header">
+  <h1>Elenco fatture</h1>
+  <button (click)="creaFattura()" color="accent" mat-flat-button>Crea fattura</button>
+</div>
 
 <table>
   <mat-table [dataSource]="fatture" class="mat-elevation-z8">
     <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
-      <mat-cell *matCellDef="let fattura"> {{fattura.id}} </mat-cell>
+      <mat-cell *matCellDef="let fattura" [routerLink]="['/fatture', fattura.id]"> {{fattura.id}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="cliente.ragioneSociale">
       <mat-header-cell *matHeaderCellDef> Ragione Sociale </mat-header-cell>
-      <mat-cell *matCellDef="let fattura"> {{fattura.cliente.ragioneSociale}} </mat-cell>
+      <mat-cell *matCellDef="let fattura" [routerLink]="['/clienti', fattura.cliente.id]"> {{fattura.cliente.ragioneSociale}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="importo">
@@ -19,7 +22,22 @@
 
     <ng-container matColumnDef="stato.nome">
       <mat-header-cell *matHeaderCellDef> Stato </mat-header-cell>
-      <mat-cell *matCellDef="let fattura"> {{fattura.stato.nome}} </mat-cell>
+      <mat-cell *matCellDef="let fattura">
+        <mat-form-field>
+          <mat-label>Stato</mat-label>
+          <mat-select select (valueChange)="onModificaStato($event, fattura)" name="stato" id="stato">
+            <mat-option value="{{fattura.stato.id}}">{{fattura.stato.nome}}</mat-option>
+            <mat-option *ngIf="fattura.stato.id == 1" value="2">PAGATA</mat-option>
+            <mat-option *ngIf="fattura.stato.id == 2" value="1">NON PAGATA</mat-option>
+            <mat-option value="3">ELIMINA</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="element">
+      <mat-header-cell *matHeaderCellDef> Azioni </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element}} </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
@@ -28,12 +46,15 @@
 </table>
 
 
+
+
+
 <div id="navigation">
   <!-- sistemare prima e ultima pagina -->
-  <button mat-raised-button color="accent" (click)="indietroPagina()">Prima pagina</button>
-  <button mat-raised-button color="accent" (click)="indietroPagina()" *ngIf="currentIndex" >Pagina precedente</button>
+  <!-- <button mat-raised-button color="accent" (click)="indietroPagina()">Prima pagina</button> -->
+  <button mat-raised-button color="accent" (click)="indietroPagina()" *ngIf="currentIndex">Pagina precedente</button>
   <button mat-raised-button color="accent" (click)="avanzaPagina()">Pagina successiva</button>
-  <button mat-raised-button color="accent" (click)="avanzaPagina()">Ultima pagina</button>
+  <!-- <button mat-raised-button color="accent" (click)="avanzaPagina()">Ultima pagina</button> -->
 </div>
 
 <section><em>Aggiornato alle {{ora}} del {{giorno}}</em></section>

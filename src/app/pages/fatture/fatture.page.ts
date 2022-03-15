@@ -1,15 +1,18 @@
 import { Component, AfterViewChecked, OnInit } from '@angular/core';
-
 import { FattureService } from './fatture.service';
-
 import { Fattura } from 'src/app/models/fattura';
+import { Router } from '@angular/router';
+
+import { MatDialog } from '@angular/material/dialog';
+import { DialogEliminaFattureComponent } from 'src/app/components/dialog-elimina-fatture.component';
+import { DialogModificaFattureComponent } from 'src/app/components/dialog-modifica-fatture.component';
 
 @Component({
   templateUrl: './fatture.page.html',
   styleUrls: ['./fatture.page.scss'],
-
 })
 export class FatturePage implements OnInit {
+  select!: number;
 
   fatture!: Fattura[];
   pagina: number = 0;
@@ -20,7 +23,11 @@ export class FatturePage implements OnInit {
   ora = `${this.data.getHours()}:${this.data.getMinutes()}:${this.data.getSeconds()}`;
   giorno = `${this.data.getDate()}/${this.data.getMonth()}/${this.data.getFullYear()}`;
 
-  constructor(public fattureSrv: FattureService) {}
+  constructor(
+    public fattureSrv: FattureService,
+    private router: Router,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit() {
     this.pagina;
@@ -36,6 +43,10 @@ export class FatturePage implements OnInit {
 
   ngAfterViewChecked() {
     console.log('dopo caricamento');
+  }
+
+  creaFattura() {
+    this.fattureSrv.creaFattura;
   }
 
   avanzaPagina() {
@@ -67,4 +78,42 @@ export class FatturePage implements OnInit {
   }
 
   //sistemare prima e ultima pagina
+
+  onModificaStato(event: any, fattura: Fattura) {
+    //modifica dello stato o eliminazione della fattura tramite switch
+    console.log(event);
+    switch (event) {
+      case '1': {
+        console.log(event.value + ' Stato non pagata, in attesa di modifiche');
+        let nuovoStato = {
+          id: 1,
+          nome: 'NON PAGATA',
+        };
+        fattura.stato = nuovoStato;
+        this.fattureSrv.modificaStato(fattura).subscribe((res) => {
+          this.dialog.open(DialogModificaFattureComponent);
+        });
+        break;
+      }
+      case '2': {
+        console.log(event.value + ' Stato pagata, in attesa di modifiche');
+        let nuovoStato = {
+          id: 2,
+          nome: 'PAGATA',
+        };
+        fattura.stato = nuovoStato;
+        this.fattureSrv.modificaStato(fattura).subscribe((res) => {
+          this.dialog.open(DialogModificaFattureComponent);
+        });
+        break;
+      }
+      case '3': {
+        console.log(event.value + ' Stato eliminata, in attesa di modifiche');
+        this.fattureSrv.cancellaFattura(fattura.id).subscribe((res) => {
+          this.dialog.open(DialogEliminaFattureComponent);
+        });
+        break;
+      }
+    }
+  }
 }
