@@ -20,14 +20,21 @@ import { ContattiPage } from './pages/contatti/contatti.page';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';//material module con tutto material
 
-import { DialogModificaFattureComponent } from './components/dialog-modifica-fatture.component';
-import { DialogEliminaFattureComponent } from './components/dialog-elimina-fatture.component';
-import { DettagliFatturaPage } from './dettagli-fattura/dettagli-fattura.page';
-import { DettagliClientePage } from './dettagli-cliente/dettagli-cliente.page';
+import { DialogModificaFattureComponent } from './components/dialog/dialog-modifica-fatture.component';
+import { DialogEliminaFattureComponent } from './components/dialog/dialog-elimina-fatture.component';
+import { DettagliFatturaPage } from './pages/dettagli-fattura/dettagli-fattura.page';
+import { DettagliClientePage } from './pages/dettagli-cliente/dettagli-cliente.page';
 import { AuthGuard } from './auth/auth.guard';
 import { FattureDaClienteComponent } from './components/fatture-da-cliente.component';
-import { CardFatturaComponent } from './components/card-fattura.component';
-import { CardClienteComponent } from './components/card-cliente.component';
+import { CardFatturaComponent } from './components/cards/card-fattura.component';
+import { CardClienteComponent } from './components/cards/card-cliente.component';
+import { CreaClientePage } from './pages/crea-cliente/crea-cliente.page';
+import { CreaFatturaPage } from './pages/crea-fattura/crea-fattura.page';
+import { CardClienteSedeOperativaComponent } from './components/cards/card-cliente-sede-operativa.component';
+import { CardClienteSedeLegaleComponent } from './components/cards/card-cliente-sede-legale.component';
+import { CardContattiClienteComponent } from './components/cards/card-contatti-cliente.component';
+import { CardContattiAziendaComponent } from './components/cards/card-contatti-azienda.component';
+import { ModificaClientePage } from './pages/modifica-cliente/modifica-cliente.page';
 
 
 
@@ -51,6 +58,11 @@ const routes: Routes = [
     component: UtentiPage,
     canActivate: [AuthGuard]
   },
+  // {
+  //   path:,
+  //   component: CreaClientePage,
+  //   canActivate: [AuthGuard]
+  // },
   {
     path:'fatture',
     component: FatturePage,
@@ -69,6 +81,16 @@ const routes: Routes = [
   {
     path:'clienti/:id',
     component: DettagliClientePage,
+    canActivate: [AuthGuard]
+  },
+  {
+    path:'clienti/modifica/:id',
+    component: ModificaClientePage,
+    canActivate: [AuthGuard]
+  },
+  {
+    path:'clienti/crea/:id',
+    component: CreaFatturaPage,
     canActivate: [AuthGuard]
   },
   {
@@ -100,7 +122,14 @@ const routes: Routes = [
     DettagliClientePage,
     FattureDaClienteComponent,
     CardFatturaComponent,
-    CardClienteComponent
+    CardClienteComponent,
+    CreaClientePage,
+    CreaFatturaPage,
+    CardClienteSedeOperativaComponent,
+    CardClienteSedeLegaleComponent,
+    CardContattiClienteComponent,
+    CardContattiAziendaComponent,
+    ModificaClientePage
   ],
   imports: [
     BrowserModule,

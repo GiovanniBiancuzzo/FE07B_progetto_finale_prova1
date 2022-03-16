@@ -4,7 +4,7 @@
 </div>
 
 <div id="filtri">
-  <!-- aggiungere filtri per ricerca: non pagate, pagate, per cliente? -->
+  <p>aggiungere filtri per ricerca: non pagate, pagate, per cliente?</p>
 </div>
 
 <table>
@@ -26,7 +26,7 @@
 
     <ng-container matColumnDef="stato.nome">
       <mat-header-cell *matHeaderCellDef> Stato </mat-header-cell>
-      <mat-cell *matCellDef="let fattura">
+      <mat-cell matTooltip="Modifica lo stato" [matTooltipPosition]="'right'" *matCellDef="let fattura">
         <mat-form-field>
           <mat-label>Stato</mat-label>
           <mat-select select (valueChange)="onModificaStato($event, fattura)" name="stato" id="stato">
@@ -37,11 +37,6 @@
           </mat-select>
         </mat-form-field>
       </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="element">
-      <mat-header-cell *matHeaderCellDef> Azioni </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element}} </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

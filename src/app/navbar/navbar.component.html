@@ -12,7 +12,7 @@
 
     </mat-expansion-panel-header>
     <ul>
-      <ng-container *ngIf="isLogged, else elseTemplate">
+      <ng-container *ngIf="user, else elseTemplate">
         <li (click)="accordion.closeAll()" [routerLink]="['/']" routerLinkActive="active"
           [routerLinkActiveOptions]="{exact:true}">Home</li>
         <li (click)="accordion.closeAll()" [routerLink]="['/utenti']" routerLinkActive="active"
@@ -23,7 +23,7 @@
           [routerLinkActiveOptions]="{exact:true}">Clienti</li>
         <li (click)="accordion.closeAll()" [routerLink]="['/contatti']" routerLinkActive="active"
           [routerLinkActiveOptions]="{exact:true}">Contatti</li>
-        <li (click)="onLogout()" [routerLink]="['/login']" routerLinkActive="active"
+        <li (click)="onLogout()" [routerLink]="['/']" routerLinkActive="active"
           [routerLinkActiveOptions]="{exact:true}">Logout</li>
       </ng-container>
       <ng-template #elseTemplate>

@@ -1,23 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Fattura } from '../models/fattura';
-import { FattureService } from '../pages/fatture/fatture.service';
+import { Fattura } from '../../models/fattura';
+import { FattureService } from '../../pages/fatture/fatture.service';
 
 @Component({
   selector: 'app-card-fattura',
   template: `
-    <style> /* personalizza card */
-      .example-card {
-        max-width: 400px;
-      }
-      mat-divider, mat-card-title {
-        padding-bottom: 15px;
-      }
-    </style>
-
     <mat-card class="example-card">
       <mat-card-title>Fattura n.{{ fattura.numero }} per </mat-card-title>
-      <mat-card-subtitle>Partita Iva: 15878411006</mat-card-subtitle>
+      <br>
+      <mat-card-subtitle>Partita Iva Epicode: 15878411006</mat-card-subtitle>
       <mat-card-content>
         <p>Importo fattura: {{ fattura.numero | currency : 'EUR'}}</p>
         <p>Stato fattura: {{ fattura.stato.nome}}</p>

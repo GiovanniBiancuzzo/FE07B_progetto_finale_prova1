@@ -17,8 +17,8 @@ export class FattureService {
     return this.http.get<any>(`${this.url}/api/fatture?page=${pagina}&size=20&sort=id,ASC`);
   }
 
-  getFattureDaCliente(id: number) {//fatture corrispondenti ad un determinato utente (id = cliente.id)
-    return this.http.get<any>(`${this.url}/api/fatture/cliente/${id}?page=0&size=200&sort=id,ASC`);
+  getFattureDaCliente(id: number, pagina: number) {//fatture corrispondenti ad un determinato utente (id = cliente.id)
+    return this.http.get<any>(`${this.url}/api/fatture/cliente/${id}?page=${pagina}&size=20&sort=id,ASC`);
   }
 
   getDettagliFattura(id: number) {//singola fattura
@@ -29,10 +29,6 @@ export class FattureService {
     return this.http.put<any>(`${this.url}/api/fatture/${fattura.id}`, fattura);
   }
 
-  cancellaFattura(id: number) {//cancellazione fattura
-    return this.http.delete<any>(`${this.url}/api/fatture/${id}`);
-  }
-
   creaFattura(fattura: Fattura) {//per creare una nuova fattura
     return this.http.post<any>(`${this.url}/api/fatture/${fattura.id}`, fattura);
   }
@@ -41,4 +37,11 @@ export class FattureService {
     return this.http.post<any>(`${this.url}/api/fatture/${fattura.id}`, fattura);
   }
 
+  cancellaFattura(id: number) {//cancellazione fattura
+    return this.http.delete<any>(`${this.url}/api/fatture/${id}`);
+  }
+
+  cancellaFatture(id: number) {//cancellazione fatture
+    return this.http.delete<any>(`${this.url}/api/fatture/cliente/${id}`);
+  }
 }

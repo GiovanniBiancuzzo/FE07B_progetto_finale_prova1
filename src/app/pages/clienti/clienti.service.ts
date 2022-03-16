@@ -17,13 +17,16 @@ export class ClientiService {
     return this.http.get<any>(`${this.url}/api/clienti?page=${pagina}&size=20&sort=id,ASC`);
   }
 
-  modificaStato(fattura: Cliente) {
-    //per aggiornare si ripassa tutta la fattura con il solo stato cambiato
-    return this.http.put<any>(`${this.url}/api/clienti/${fattura.id}`, fattura);
+  getDettagliCliente(id: Number) {
+    //dettagli singolo cliente
+    return this.http.get<any>(`${this.url}/api/clienti/${id}`);
   }
 
-  cancellaFattura(fattura: Cliente) {
-    //cancellazione fattura
-    return this.http.delete<any>(`${this.url}/api/clienti/${fattura.id}`);
+  creaCliente() {//da finire
+
+  }
+
+  cancellaCliente(id: number) {//cancellazione cliente
+    return this.http.delete<any>(`${this.url}/api/clienti/${id}`);
   }
 }

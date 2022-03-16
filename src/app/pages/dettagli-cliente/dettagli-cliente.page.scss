@@ -1,11 +1,11 @@
-#header {
+main {
   display: flex;
-  align-items: center;
-  width: 80%;
+  max-width: 90%;
+  margin: 30px auto;
 }
-
-h1 {
-  margin: 20px auto 20px auto;
+main > #cliente,
+main > div {
+  flex-basis: 33%;
 }
 
 table,
@@ -20,8 +20,8 @@ section {
   width: 90%;
 }
 
-#navigation > button {
-  margin: 0 10px 0;
+button {
+  margin: 10px;
 }
 
 .mat-column-id,

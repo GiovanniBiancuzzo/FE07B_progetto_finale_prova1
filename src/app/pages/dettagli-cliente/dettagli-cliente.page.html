@@ -1,0 +1,94 @@
+<main>
+  <div>
+    <app-card-cliente id="cliente"></app-card-cliente>
+    <div>
+      <button mat-raised-button color="accent" (click)="mostraFatture(clienteId)">Mostra fatture</button>
+      <button mat-raised-button color="accent" [routerLink]="['/clienti/crea', clienteId]">Crea fattura</button>
+      <button mat-raised-button color="accent" [routerLink]="['/clienti/modifica', clienteId]">Modifica
+        anagrafica</button><!-- creare un dialog -->
+      <button mat-raised-button color="warn" (click)="deleteAll()">Elmina cliente (e relative fatture)</button>
+    </div>
+  </div>
+  <div>
+    <app-card-contatti-cliente></app-card-contatti-cliente>
+    <app-card-contatti-azienda></app-card-contatti-azienda>
+  </div>
+  <div>
+    <app-card-cliente-sede-legale></app-card-cliente-sede-legale>
+    <app-card-cliente-sede-operativa></app-card-cliente-sede-operativa>
+  </div>
+
+</main>
+
+<!-- stampa le fatture del singolo cliente -->
+<section *ngIf="fatture">
+  <table>
+    <mat-table [dataSource]="fatture" class="mat-elevation-z8">
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+        <mat-cell matTooltip="Vai alla fattura" [matTooltipPosition]="'left'" *matCellDef="let fattura"
+          [routerLink]="['/fatture', fattura.id]">
+          {{ fattura.id }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="cliente.ragioneSociale">
+        <mat-header-cell *matHeaderCellDef>
+          Ragione Sociale
+        </mat-header-cell>
+        <mat-cell *matCellDef="let fattura">
+          {{ fattura.cliente.ragioneSociale }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="importo">
+        <mat-header-cell *matHeaderCellDef> Importo </mat-header-cell>
+        <mat-cell *matCellDef="let fattura">
+          {{ fattura.importo }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="stato.nome">
+        <mat-header-cell *matHeaderCellDef> Stato </mat-header-cell>
+        <mat-cell matTooltip="Modifica lo stato" [matTooltipPosition]="'right'" *matCellDef="let fattura">
+          <mat-form-field>
+            <mat-label>Stato</mat-label>
+            <mat-select select (valueChange)="onModificaStato($event, fattura)" name="stato" id="stato">
+              <mat-option value="{{ fattura.stato.id }}">
+                <mat-icon>edit</mat-icon>{{ fattura.stato.nome }}
+              </mat-option>
+              <mat-option *ngIf="fattura.stato.id == 1" value="2">
+                <mat-icon>edit</mat-icon>PAGATA
+              </mat-option>
+              <mat-option *ngIf="fattura.stato.id == 2" value="1">
+                <mat-icon>edit</mat-icon>NON PAGATA
+              </mat-option>
+              <mat-option value="3">
+                <mat-icon>delete_forever</mat-icon>ELIMINA
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+  </table>
+
+
+  <div id="navigation">
+    <!-- sistemare prima e ultima pagina -->
+    <!-- <button mat-raised-button color="accent" (click)="indietroPagina()">Prima pagina</button> -->
+    <button mat-raised-button color="accent" (click)="indietroPagina()" *ngIf="currentIndex">Pagina precedente</button>
+    <button mat-raised-button color="accent" (click)="avanzaPagina()" *ngIf="fatture">Pagina successiva</button>
+    <!-- <button mat-raised-button color="accent" (click)="avanzaPagina()">Ultima pagina</button> -->
+  </div>
+
+  <section><em>Aggiornato alle {{ora}} del {{giorno}}</em></section>
+</section>
+
+<!-- form dentro la pagina che compare solo -->
+<!-- <section *ngIf="expression">
+
+</section> -->

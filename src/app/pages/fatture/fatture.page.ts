@@ -1,11 +1,10 @@
 import { Component, AfterViewChecked, OnInit } from '@angular/core';
 import { FattureService } from './fatture.service';
 import { Fattura } from 'src/app/models/fattura';
-import { Router } from '@angular/router';
 
 import { MatDialog } from '@angular/material/dialog';
-import { DialogEliminaFattureComponent } from 'src/app/components/dialog-elimina-fatture.component';
-import { DialogModificaFattureComponent } from 'src/app/components/dialog-modifica-fatture.component';
+import { DialogEliminaFattureComponent } from 'src/app/components/dialog/dialog-elimina-fatture.component';
+import { DialogModificaFattureComponent } from 'src/app/components/dialog/dialog-modifica-fatture.component';
 
 @Component({
   templateUrl: './fatture.page.html',
@@ -25,7 +24,6 @@ export class FatturePage implements OnInit {
 
   constructor(
     public fattureSrv: FattureService,
-    private router: Router,
     public dialog: MatDialog
   ) {}
 

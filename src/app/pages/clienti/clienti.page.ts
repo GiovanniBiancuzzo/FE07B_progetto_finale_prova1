@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from 'src/app/models/cliente';
+import { FattureService } from '../fatture/fatture.service';
 import { ClientiService } from './clienti.service';
 
 @Component({
@@ -16,7 +17,7 @@ export class ClientiPage implements OnInit {
   ora = `${this.data.getHours()}:${this.data.getMinutes()}:${this.data.getSeconds()}`;
   giorno = `${this.data.getDate()}/${this.data.getMonth()}/${this.data.getFullYear()}`;
 
-  constructor(private clientiSrv: ClientiService) {}
+  constructor(private clientiSrv: ClientiService, public fattureSrv: FattureService) {}
 
   ngOnInit(): void {
     this.clientiSrv.getClienti(this.pagina).subscribe({
@@ -30,6 +31,10 @@ export class ClientiPage implements OnInit {
   }
   ngAfterViewChecked() {
     console.log('dopo caricamento');
+  }
+
+  creaCliente() {//da finire
+    this.clientiSrv.creaCliente;
   }
 
   avanzaPagina() {

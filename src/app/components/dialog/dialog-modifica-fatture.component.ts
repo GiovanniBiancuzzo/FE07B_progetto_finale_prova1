@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { FattureService } from '../pages/fatture/fatture.service';
+import { FattureService } from '../../pages/fatture/fatture.service';
 
 @Component({
   selector: 'app-dialog-modifica-fatture',

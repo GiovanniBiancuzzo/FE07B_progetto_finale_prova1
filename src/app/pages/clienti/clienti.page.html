@@ -1,15 +1,22 @@
-<h1>Elenco clienti</h1>
+<div id="header">
+  <h1>Elenco clienti</h1>
+  <button (click)="creaCliente()" color="accent" mat-flat-button><mat-icon>add</mat-icon> Crea cliente</button>
+</div>
+
+<div id="filtri">
+  <!-- aggiungere filtri per ricerca: non pagate, pagate, per cliente? -->
+</div>
 
 <table>
   <mat-table [dataSource]="clienti" class="mat-elevation-z8">
     <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
-      <mat-cell *matCellDef="let cliente"> {{cliente.id}} </mat-cell>
+      <mat-cell  matTooltip="Vai alle fatture del cliente" [matTooltipPosition]="'left'" *matCellDef="let cliente" [routerLink]="['/clienti', cliente.id]"> {{cliente.id}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="ragioneSociale">
       <mat-header-cell *matHeaderCellDef> Ragione Sociale </mat-header-cell>
-      <mat-cell *matCellDef="let cliente"> {{cliente.ragioneSociale}} </mat-cell>
+      <mat-cell  matTooltip="Vai al cliente" [matTooltipPosition]="'left'" *matCellDef="let cliente" [routerLink]="['/clienti', cliente.id]"> {{cliente.ragioneSociale}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="partitaIva">
@@ -29,10 +36,10 @@
 
 <div id="navigation">
   <!-- sistemare prima e ultima pagina -->
-  <button mat-raised-button color="accent" (click)="indietroPagina()">Prima pagina</button>
+  <!-- <button mat-raised-button color="accent" (click)="indietroPagina()">Prima pagina</button> -->
   <button mat-raised-button color="accent" (click)="indietroPagina()" *ngIf="currentIndex" >Pagina precedente</button>
   <button mat-raised-button color="accent" (click)="avanzaPagina()">Pagina successiva</button>
-  <button mat-raised-button color="accent" (click)="avanzaPagina()">Ultima pagina</button>
+  <!-- <button mat-raised-button color="accent" (click)="avanzaPagina()">Ultima pagina</button> -->
 </div>
 
 <section><em>Aggiornato alle {{ora}} del {{giorno}}</em></section>
