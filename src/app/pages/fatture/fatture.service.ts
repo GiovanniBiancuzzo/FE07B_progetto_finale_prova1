@@ -8,12 +8,11 @@ import { Fattura } from 'src/app/models/fattura';
 })
 export class FattureService {
 
-  url = environment.pathApi
+  url = environment.pathApi;
 
   constructor(private http: HttpClient) { }
 
   getFatture(pagina: Number) {//si ottiene l'ennesima pagina composta da 20 fatture
-    console.log("getFatture")
     return this.http.get<any>(`${this.url}/api/fatture?page=${pagina}&size=20&sort=id,ASC`);
   }
 

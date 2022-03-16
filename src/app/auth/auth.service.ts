@@ -1,8 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { BehaviorSubject, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { User } from '../models/user';
 import { UserAuth } from '../models/user-auth';
+import { UserRole } from '../models/user-role';
 
 @Injectable({
   providedIn: 'root',
@@ -25,9 +28,18 @@ export class AuthService {
     }
   }
 
-  signup(data: { name: string; email: string; password: string }) {
-    console.log('signup auth service ' + data);
-    return this.http.post(`${this.url}/api/auth/signup`, data);
+  signup(user: User) {
+    console.log(user);
+    // form = this.user;
+    // console.log(this.user);
+    // if (form.roles == "ROLE_ADMIN") {
+    //   this.user.roles[0].id = 1;
+    //   this.user.roles[0].roleName = "ROLE_ADMIN";
+    // } else if (form.roles == "ROLE_USER") {
+    //   this.user.roles[0].id = 2;
+    //   this.user.roles[0].roleName = "ROLE_USER";
+    // }
+    return this.http.post<User>(`${this.url}/api/auth/signup`, user);
   }
 
   logout() {

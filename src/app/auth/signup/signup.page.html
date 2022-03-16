@@ -1,35 +1,138 @@
-<p>signup works!</p>
+<form #form="ngForm" (ngSubmit)="onSignup(form)">
+  <mat-form-field appearance="fill">
+    <mat-label for="nome">Nome</mat-label>
+    <input matInput placeholder="Nome" name="nome" required ngModel id="nome" type="text" />
+  </mat-form-field>
 
-<div class="login">
-  <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm)">
-    <mat-form-field appearance="outline">
-      <mat-label>Username</mat-label>
-      <input matInput type="text" id="username" [formControl]="usernameVal" formControlName="username"
-        placeholder="Username">
-      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-      <mat-error *ngIf="usernameVal.hasError('required')">
-        Un username è <strong>obbligatorio</strong>
-      </mat-error>
-      <mat-hint>admin</mat-hint>
-    </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label for="cognome">Cognome</mat-label>
+    <input matInput placeholder="Cognome" name="cognome" ngModel id="cognome" type="text" />
+  </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Inserisci la password</mat-label>
-      <input matInput id="password" [type]="hide ? 'password' : 'text'" [formControl]="passwordVal"
-      formControlName="password">
-      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-        [attr.aria-pressed]="hide">
-        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-      </button>
-      <mat-error *ngIf="passwordVal.hasError('required')">
-        Una password è <strong>obbligatoria</strong>
-      </mat-error>
-      <mat-hint>111111</mat-hint>
-    </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label for="email">Email</mat-label>
+    <input matInput placeholder="email@example.com" name="email" required ngModel id="email" type="email" />
+  </mat-form-field>
 
+  <mat-form-field appearance="fill">
+    <mat-label for="password">Password</mat-label>
+    <input matInput [type]="hide ? 'password' : 'text'" name="password" required ngModel id="password"
+      type="password" />
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hide">
+      <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label for="roles">Stato</mat-label>
+    <mat-select select name="roles" id="roles" required ngModel>
+      <mat-option value="ROLE_ADMIN">Admin</mat-option>
+      <mat-option value="ROLE_USER">User</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button color="accent" type="submit" [disabled]="form.invalid" class="btn btn-primary mt-4">
+    Registrati
+    <span *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status"></span>
+    <!-- sostituire questo spinner css con qualcosa da material -->
+  </button>
+</form>
+<a [routerLink]="['/login']">Sei già registrato?</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="login">
+  <form [formGroup]="loginForm" (ngSubmit)="onSignup(loginForm)">
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Inserisci una nome</mat-label>
+        <input matInput type="text" id="nome" [formControl]="nomeVal" formControlName="nome" placeholder="nome">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-error *ngIf="nomeVal.hasError('required')">
+          Un nome è <strong>obbligatoria</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Inserisci una cognome</mat-label>
+        <input matInput type="text" id="cognome" formControlName="cognome" placeholder="cognome">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+    </div>
+
+
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Inserisci una email</mat-label>
+        <input matInput type="text" id="email" [formControl]="emailVal" formControlName="email" placeholder="Email">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-error *ngIf="emailVal.hasError('required')">
+          Una email è <strong>obbligatoria</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Inserisci la password</mat-label>
+        <input matInput id="password" [type]="hide ? 'password' : 'text'" [formControl]="passwordVal"
+          formControlName="password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="passwordVal.hasError('required')">
+          Una password è <strong>obbligatoria</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field>
+        <mat-label>Stato</mat-label>
+        <mat-select select name="roles" id="roles" [formControl]="rolesVal" formControlName="roles">
+          <mat-option value="ROLE_ADMIN">Admin</mat-option>
+          <mat-option value="ROLE_USER">User</mat-option>
+
+        </mat-select>
+      </mat-form-field>
+    </div>
     <button mat-raised-button type="submit" [disabled]="!loginForm.valid" color="accent">Accedi</button>
   </form>
 
   <p>Sei già registrato? <a [routerLink]="['/login']">Clicca qui</a></p>
 
-</div>
+</div> -->

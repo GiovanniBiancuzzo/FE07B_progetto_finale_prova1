@@ -10,6 +10,8 @@
 - interceptor
 - login
 
+# elenco utenti
+
 # elenco fatture
 - stampa fattura
 - modifica stato fattura
@@ -22,8 +24,7 @@
 - cancellazione cliente e fatture
 
 # da implementare
-- lista utenti
-- footer(da riempire)
+- footer
 - routes in app.routing.module
 - signup
 - creazione fattura
