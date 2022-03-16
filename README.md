@@ -6,9 +6,12 @@
 
 # auth
 - guard
+- interceptor
+- login
 
 # elenco fatture
 - stampa fattura
+- modifica stato fattura
 - card fattura
 - dettagli fattura
 - cancellazione fattura
@@ -21,3 +24,7 @@
 - lista utenti
 - footer(da riempire)
 - routes in app.routing.module
+- signup
+- creazione fattura
+- aggiunta cliente
+- modifica cliente
