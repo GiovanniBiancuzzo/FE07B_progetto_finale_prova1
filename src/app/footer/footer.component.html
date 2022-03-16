@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <em id="firma">Made with Angular & Material by Giovanni Biancuzzo</em>
+    <span class="example-spacer"></span>
+    <h3>Epic Education Srl &nbsp;&nbsp;&nbsp; Partita Iva: 15878411006</h3>
+
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" yPosition="above">
+
+      <button mat-menu-item>
+        <mat-icon>help_outline</mat-icon>
+        <span>Supporto</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>

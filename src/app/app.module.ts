@@ -35,6 +35,7 @@ import { CardClienteSedeLegaleComponent } from './components/cards/card-cliente-
 import { CardContattiClienteComponent } from './components/cards/card-contatti-cliente.component';
 import { CardContattiAziendaComponent } from './components/cards/card-contatti-azienda.component';
 import { ModificaClientePage } from './pages/modifica-cliente/modifica-cliente.page';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -129,7 +130,8 @@ const routes: Routes = [
     CardClienteSedeLegaleComponent,
     CardContattiClienteComponent,
     CardContattiAziendaComponent,
-    ModificaClientePage
+    ModificaClientePage,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
