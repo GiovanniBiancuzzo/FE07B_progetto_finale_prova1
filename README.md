@@ -4,6 +4,8 @@
 - cartella material con tutti i suoi components importati
 - navbar accordio
 
+# auth
+- guard
 
 # elenco fatture
 - stampa fattura
@@ -18,4 +20,4 @@
 # da implementare
 - lista utenti
 - footer(da riempire)
-- routes non lazy ne protette
+- routes in app.routing.module
