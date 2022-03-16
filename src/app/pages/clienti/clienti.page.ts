@@ -11,7 +11,7 @@ export class ClientiPage implements OnInit {
   pagina: number = 0;
   clienti!: Cliente[];
   currentIndex: number = this.pagina;
-  displayedColumns = ['id', 'ragioneSociale', 'partitaIva', 'emailContatto'];
+  displayedColumns = ['id', 'ragioneSociale', 'partitaIva', 'telefono' ,'email'];
 
   data = new Date();
   ora = `${this.data.getHours()}:${this.data.getMinutes()}:${this.data.getSeconds()}`;

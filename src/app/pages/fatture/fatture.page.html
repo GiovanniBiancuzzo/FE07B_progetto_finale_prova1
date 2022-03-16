@@ -28,7 +28,7 @@
       <mat-header-cell *matHeaderCellDef> Stato </mat-header-cell>
       <mat-cell matTooltip="Modifica lo stato" [matTooltipPosition]="'right'" *matCellDef="let fattura">
         <mat-form-field>
-          <mat-label>Stato</mat-label>
+          <mat-label>{{fattura.stato.nome}}</mat-label>
           <mat-select select (valueChange)="onModificaStato($event, fattura)" name="stato" id="stato">
             <mat-option value="{{fattura.stato.id}}"><mat-icon>edit</mat-icon>{{fattura.stato.nome}}</mat-option>
             <mat-option *ngIf="fattura.stato.id == 1" value="2"><mat-icon>edit</mat-icon>PAGATA</mat-option>

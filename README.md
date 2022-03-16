@@ -30,3 +30,4 @@
 - creazione fattura
 - aggiunta cliente
 - modifica cliente
+- undefined nei caricamenti

@@ -11,7 +11,7 @@ import { FattureService } from '../../pages/fatture/fatture.service';
       <br>
       <mat-card-subtitle>Partita Iva Epicode: 15878411006</mat-card-subtitle>
       <mat-card-content>
-        <p>Importo fattura: {{ fattura.numero | currency : 'EUR'}}</p>
+        <p>Importo fattura: {{ fattura.importo | currency : 'EUR'}}</p>
         <p>Stato fattura: {{ fattura.stato.nome}}</p>
         <p>Data: {{ fattura.data | date }}</p>
       </mat-card-content>

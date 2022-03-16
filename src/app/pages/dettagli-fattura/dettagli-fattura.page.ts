@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FattureService } from '../fatture/fatture.service';
 
 @Component({
   template: `
@@ -38,10 +39,10 @@ import { ActivatedRoute } from '@angular/router';
           <button mat-raised-button color="accent" (click)="print()">
             <mat-icon>print</mat-icon> Stampa
           </button>
-          <button mat-raised-button color="accent">
-            <mat-icon>edit</mat-icon> Modifica</button
+          <button mat-raised-button color="accent" >
+            <mat-icon>edit</mat-icon> Modifica stato </button
           ><!-- da finire -->
-          <button mat-raised-button color="accent">
+          <button mat-raised-button color="accent" (click)="onElimina()">
             <mat-icon>delete_forever</mat-icon> Elimina</button
           ><!-- da finire -->
         </div>
@@ -71,7 +72,7 @@ import { ActivatedRoute } from '@angular/router';
 export class DettagliFatturaPage implements OnInit {
   fatturaId!: number;
 
-  constructor(private router: ActivatedRoute) {}
+  constructor(private router: ActivatedRoute, private route: Router, private fattureSrv: FattureService) {}
 
   ngOnInit(): void {
     this.router.params.subscribe({
@@ -86,5 +87,13 @@ export class DettagliFatturaPage implements OnInit {
 
   print() {
     window.print();
+  }
+
+  onElimina() {
+    this.fattureSrv.cancellaFattura(this.fatturaId).subscribe({
+      next: (v) => this.route.navigate(['/fatture']),
+      error: (e) => console.error(e),
+      complete: () => console.info('fattura eliminata'),
+    })
   }
 }

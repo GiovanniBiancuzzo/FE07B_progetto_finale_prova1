@@ -11,22 +11,27 @@
   <mat-table [dataSource]="clienti" class="mat-elevation-z8">
     <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
-      <mat-cell  matTooltip="Vai alle fatture del cliente" [matTooltipPosition]="'left'" *matCellDef="let cliente" [routerLink]="['/clienti', cliente.id]"> {{cliente.id}} </mat-cell>
+      <mat-cell matTooltip="Vai alle fatture del cliente" [matTooltipPosition]="'left'" *matCellDef="let cliente" [routerLink]="['/clienti', cliente.id]"> {{cliente.id}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="ragioneSociale">
       <mat-header-cell *matHeaderCellDef> Ragione Sociale </mat-header-cell>
-      <mat-cell  matTooltip="Vai al cliente" [matTooltipPosition]="'left'" *matCellDef="let cliente" [routerLink]="['/clienti', cliente.id]"> {{cliente.ragioneSociale}} </mat-cell>
+      <mat-cell matTooltip="Vai al cliente" [matTooltipPosition]="'left'" *matCellDef="let cliente" [routerLink]="['/clienti', cliente.id]"> {{cliente.ragioneSociale}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="partitaIva">
-      <mat-header-cell *matHeaderCellDef> partitaIva </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Partita Iva </mat-header-cell>
       <mat-cell *matCellDef="let cliente"> {{cliente.partitaIva}} </mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="emailContatto">
-      <mat-header-cell *matHeaderCellDef> emailContatto </mat-header-cell>
-      <mat-cell *matCellDef="let cliente"> {{cliente.emailContatto}} </mat-cell>
+    <ng-container matColumnDef="telefono">
+      <mat-header-cell *matHeaderCellDef> telefono </mat-header-cell>
+      <mat-cell matTooltip="Chiama" [matTooltipPosition]="'left'" *matCellDef="let cliente"><mat-icon>phone</mat-icon>{{cliente.telefono}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+      <mat-cell matTooltip="Invia email" [matTooltipPosition]="'right'" *matCellDef="let cliente"><mat-icon>mail</mat-icon>{{cliente.email}}</mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
