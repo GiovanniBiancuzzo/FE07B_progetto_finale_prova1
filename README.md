@@ -18,10 +18,14 @@
 - card fattura
 - dettagli fattura
 - cancellazione fattura
+
 # elenco clienti
 - dettagli cliente
 - card per sezioni utente
 - cancellazione cliente e fatture
+
+# extra
+- telto e mailto al click
 
 # da implementare
 - footer
@@ -31,3 +35,4 @@
 - aggiunta cliente
 - modifica cliente
 - undefined nei caricamenti
+

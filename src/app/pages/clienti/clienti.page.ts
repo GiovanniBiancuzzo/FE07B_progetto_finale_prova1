@@ -66,4 +66,14 @@ export class ClientiPage implements OnInit {
   }
 
   //sistemare prima e ultima pagina
+
+  mandaMail(mail: string) {
+    console.log("mail");
+    window.location.href = "mailto:" + mail;
+  }
+
+  chiama(tel: number) {
+    console.log("tel");
+    window.location.href = "telto:" + tel;
+  }
 }

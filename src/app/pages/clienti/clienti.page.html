@@ -26,12 +26,12 @@
 
     <ng-container matColumnDef="telefono">
       <mat-header-cell *matHeaderCellDef> telefono </mat-header-cell>
-      <mat-cell matTooltip="Chiama" [matTooltipPosition]="'left'" *matCellDef="let cliente"><mat-icon>phone</mat-icon>{{cliente.telefono}}</mat-cell>
+      <mat-cell matTooltip="Chiama" [matTooltipPosition]="'left'" (click)="chiama(cliente.telefono)" *matCellDef="let cliente"><mat-icon>phone</mat-icon>{{cliente.telefono}}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="email">
       <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
-      <mat-cell matTooltip="Invia email" [matTooltipPosition]="'right'" *matCellDef="let cliente"><mat-icon>mail</mat-icon>{{cliente.email}}</mat-cell>
+      <mat-cell matTooltip="Invia email" [matTooltipPosition]="'right'" (click)="mandaMail(cliente.email)" *matCellDef="let cliente"><mat-icon>mail</mat-icon>{{cliente.email}}</mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
