@@ -2,7 +2,8 @@
 
 # base progetto con material
 - cartella material con tutti i suoi components importati
-- navbar accordio
+- navbar accordion
+- tabs per gli l'elenchi
 
 # auth
 - guard
