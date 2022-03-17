@@ -54,11 +54,11 @@ export class ModificaClientePage implements OnInit {
     });
   }
 
-  ripristinaForm() {
+  ripristinaForm() {//incompleta
     this.newCliente = this.cliente;
   }
 
-  svuotaForm() {
+  svuotaForm() {//incompleta
     this.newCliente
   }
 }

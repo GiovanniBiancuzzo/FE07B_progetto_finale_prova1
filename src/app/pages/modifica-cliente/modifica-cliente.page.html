@@ -8,36 +8,36 @@
       <div>
         <mat-form-field appearance="outline">
           <mat-label>Ragione Sociale</mat-label>
-          <input matInput placeholder="" type="text" [(ngModel)]="newCliente.ragioneSociale" name="ragioneSociale" />
+          <input matInput placeholder="" type="text" [(ngModel)]="newCliente.ragioneSociale" name="ragioneSociale">
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Partita IVA</mat-label>
-          <input matInput placeholder="" type="number" [(ngModel)]="newCliente.partitaIva" name="partitaIva" />
+          <input matInput placeholder="" type="number" [(ngModel)]="newCliente.partitaIva" name="partitaIva">
         </mat-form-field>
       </div>
       <div>
         <mat-form-field appearance="outline">
           <mat-label>Email</mat-label>
-          <input matInput placeholder="" type="email" [(ngModel)]="newCliente.email" name="email" />
+          <input matInput placeholder="" type="email" [(ngModel)]="newCliente.email" name="email">
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>PEC</mat-label>
-          <input matInput placeholder="" type="email" [(ngModel)]="newCliente.pec" name="pec" />
+          <input matInput placeholder="" type="email" [(ngModel)]="newCliente.pec" name="pec">
         </mat-form-field>
       </div>
       <div>
         <mat-form-field appearance="outline">
           <mat-label>Telefono</mat-label>
-          <input matInput placeholder="" type="phone" [(ngModel)]="newCliente.telefono" name="telefono" />
+          <input matInput placeholder="" type="phone" [(ngModel)]="newCliente.telefono" name="telefono">
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Tipo cliente: {{newCliente.tipoCliente}}</mat-label>
           <mat-select [(ngModel)]="newCliente.tipoCliente" name="ragioneSociale">
             <mat-option selected>...</mat-option>
-            <mat-option>SRL</mat-option>
-            <mat-option>SPA</mat-option>
-            <mat-option>SAS</mat-option>
-            <mat-option>PA</mat-option>
+            <mat-option value="SRL">SRL</mat-option>
+            <mat-option value="SPA">SPA</mat-option>
+            <mat-option value="SAS">SAS</mat-option>
+            <mat-option value="PA">PA</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
@@ -48,23 +48,23 @@
       <div>
         <mat-form-field appearance="outline">
           <mat-label>Nome</mat-label>
-          <input matInput placeholder="" type="text" [(ngModel)]="newCliente.nomeContatto" name="nomeContatto" />
+          <input matInput placeholder="" type="text" [(ngModel)]="newCliente.nomeContatto" name="nomeContatto">
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Cognome</mat-label>
-          <input matInput placeholder="" type="text" [(ngModel)]="newCliente.cognomeContatto" name="cognomeContatto" />
+          <input matInput placeholder="" type="text" [(ngModel)]="newCliente.cognomeContatto" name="cognomeContatto">
         </mat-form-field>
       </div>
       <div>
         <mat-form-field appearance="outline">
           <mat-label>Telefono Contatto</mat-label>
           <input matInput placeholder="" type="text" [(ngModel)]="newCliente.telefonoContatto" name="telefonoContatto"
-            id="telefonoContattoInput" />
+            id="telefonoContattoInput">
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Email Contatto</mat-label>
           <input matInput placeholder="" type="email" [(ngModel)]="newCliente.emailContatto" name="emailContatto"
-            id="emailContattoInput" />
+            id="emailContattoInput">
         </mat-form-field>
       </div>
     </form>
@@ -75,25 +75,25 @@
       <div>
         <mat-form-field appearance="outline">
           <mat-label>Indirizzo</mat-label>
-          <input matInput placeholder="" type="text" [(ngModel)]="newCliente.indirizzoSedeOperativa.via" name="via" />
+          <input matInput placeholder="" type="text" [(ngModel)]="newCliente.indirizzoSedeOperativa.via" name="via">
         </mat-form-field>
       </div>
       <div>
         <mat-form-field appearance="outline">
           <mat-label>Civico</mat-label>
           <input matInput placeholder="" type="text" [(ngModel)]="newCliente.indirizzoSedeOperativa.civico"
-            name="civico" />
+            name="civico">
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Cap</mat-label>
-          <input matInput placeholder="" type="number" [(ngModel)]="newCliente.indirizzoSedeOperativa.cap" name="cap" />
+          <input matInput placeholder="" type="number" [(ngModel)]="newCliente.indirizzoSedeOperativa.cap" name="cap">
         </mat-form-field>
       </div>
       <div>
         <mat-form-field appearance="outline">
           <mat-label>Località</mat-label>
           <input matInput placeholder="" type="text" [(ngModel)]="newCliente.indirizzoSedeOperativa.localita"
-            name="localita" />
+            name="localita">
         </mat-form-field>
         <!-- <div >
               <div >
@@ -128,25 +128,25 @@
       <div>
         <mat-form-field appearance="outline">
           <mat-label>Indirizzo</mat-label>
-          <input matInput placeholder="" type="text" [(ngModel)]="newCliente.indirizzoSedeLegale.via" name="via" />
+          <input matInput placeholder="" type="text" [(ngModel)]="newCliente.indirizzoSedeLegale.via" name="via">
         </mat-form-field>
       </div>
       <div>
         <mat-form-field appearance="outline">
           <mat-label>Civico</mat-label>
           <input matInput placeholder="" type="text" [(ngModel)]="newCliente.indirizzoSedeLegale.civico"
-            name="civico" />
+            name="civico">
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Cap</mat-label>
-          <input matInput placeholder="" type="number" [(ngModel)]="newCliente.indirizzoSedeLegale.cap" name="cap" />
+          <input matInput placeholder="" type="number" [(ngModel)]="newCliente.indirizzoSedeLegale.cap" name="cap">
         </mat-form-field>
       </div>
       <div>
         <mat-form-field appearance="outline">
           <mat-label>Località</mat-label>
           <input matInput placeholder="" type="text" [(ngModel)]="newCliente.indirizzoSedeLegale.localita"
-            name="localita" />
+            name="localita">
         </mat-form-field>
       </div>
       <!-- <div >
