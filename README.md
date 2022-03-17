@@ -9,6 +9,7 @@
 - guard
 - interceptor
 - login
+- signup
 
 # home (da rifinire)
 
@@ -35,7 +36,6 @@
 
 
 # da implementare
-- signup
 - creazione fattura
 - crea cliente
 - undefined nei caricamenti (spinner, loading bar)

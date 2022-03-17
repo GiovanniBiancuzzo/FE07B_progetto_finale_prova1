@@ -1,24 +1,29 @@
 <div id="signup">
   <form #form="ngForm" (ngSubmit)="onSignup(form)">
     <mat-form-field appearance="fill">
-      <mat-label for="nome">Nome</mat-label>
-      <input matInput placeholder="Nome" name="nome" required ngModel id="nome" type="text" />
+      <mat-label>Nome</mat-label>
+      <input matInput placeholder="Nome" name="nome"  ngModel id="nome" type="text">
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label for="cognome">Cognome</mat-label>
-      <input matInput placeholder="Cognome" name="cognome" ngModel id="cognome" type="text" />
+      <mat-label>Cognome</mat-label>
+      <input matInput placeholder="Cognome" name="cognome" ngModel id="cognome" type="text">
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label for="email">Email</mat-label>
+      <mat-label>Username</mat-label>
+      <input matInput placeholder="Username" name="username" required ngModel id="username" type="text">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
       <input matInput placeholder="email@example.com" name="email" required ngModel id="email" type="email" />
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label for="password">Password</mat-label>
+      <mat-label>Password</mat-label>
       <input matInput [type]="hide ? 'password' : 'text'" name="password" required ngModel id="password"
-        type="password" />
+        type="password">
       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
         [attr.aria-pressed]="hide">
         <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
@@ -26,10 +31,10 @@
     </mat-form-field>
 
     <mat-form-field>
-      <mat-label for="roles">Stato</mat-label>
+      <mat-label>Ruolo</mat-label>
       <mat-select select name="roles" id="roles" required ngModel>
-        <mat-option value="ROLE_ADMIN">Admin</mat-option>
-        <mat-option value="ROLE_USER">User</mat-option>
+        <mat-option value="ROLE_ADMIN">Amministratore</mat-option>
+        <mat-option value="ROLE_USER">Utente</mat-option>
       </mat-select>
     </mat-form-field>
 
@@ -39,13 +44,7 @@
       <!-- sostituire questo spinner css con qualcosa da material -->
     </button>
   </form>
-  <a [routerLink]="['/login']">Sei già registrato?</a>
-
-
-
-
-
-
+  <p>Sei già registrato?<a [routerLink]="['/login']">Clicca qui</a></p>
 </div>
 
 
