@@ -10,6 +10,10 @@
 - interceptor
 - login
 
+# home (da rifinire)
+
+# footer (da rifinire)
+
 # elenco utenti
 
 # elenco fatture
@@ -28,11 +32,10 @@
 - telto e mailto al click
 
 # da implementare
-- footer
 - routes in app.routing.module
 - signup
 - creazione fattura
 - aggiunta cliente
 - modifica cliente
-- undefined nei caricamenti
+- undefined nei caricamenti (spinner, loading bar)
 
