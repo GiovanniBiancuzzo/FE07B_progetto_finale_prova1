@@ -31,11 +31,13 @@
 # extra
 - telto e mailto al click
 
+
+
 # da implementare
 - routes in app.routing.module
 - signup
 - creazione fattura
-- aggiunta cliente
+- crea cliente
 - modifica cliente
 - undefined nei caricamenti (spinner, loading bar)
 

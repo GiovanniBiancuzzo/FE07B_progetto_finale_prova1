@@ -22,8 +22,12 @@ export class ClientiService {
     return this.http.get<any>(`${this.url}/api/clienti/${id}`);
   }
 
-  creaCliente() {//da finire
+  creaCliente(cliente: Cliente) {//crea cliente
+    return this.http.post<any>(`${this.url}/api/clienti`, cliente);
+  }
 
+  modificaCliente(cliente: Cliente) {//modifica cliente
+    return this.http.put<any>(`${this.url}/api/clienti/${cliente.id}`, cliente);
   }
 
   cancellaCliente(id: number) {//cancellazione cliente
