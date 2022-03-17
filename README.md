@@ -27,17 +27,16 @@
 - dettagli cliente
 - card per sezioni utente
 - cancellazione cliente e fatture
-
+- modifica cliente
+- 
 # extra
 - telto e mailto al click
-
+- routes in app.routing.module
 
 
 # da implementare
-- routes in app.routing.module
 - signup
 - creazione fattura
 - crea cliente
-- modifica cliente
 - undefined nei caricamenti (spinner, loading bar)
 
