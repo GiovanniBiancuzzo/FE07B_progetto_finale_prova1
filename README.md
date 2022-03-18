@@ -40,6 +40,7 @@
 
 
 # da implementare o non completati
+- contatti
 - creazione fattura
 - crea cliente
 - dopo il login, la barra di navigazione non si aggiorna correttamente mostrando le pagine accessibili, serve refresh della pagina
