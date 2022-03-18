@@ -7,6 +7,11 @@ import { FattureService } from '../../pages/fatture/fatture.service';
 @Component({
   selector: 'app-card-cliente-sede-operativa',
   template: `
+  <style>
+    * {
+      margin: 10px;
+    }
+  </style>
     <mat-card class="example-card">
       <mat-card-title>Sede Operativa</mat-card-title>
       <mat-card-subtitle>Indirizzo</mat-card-subtitle>

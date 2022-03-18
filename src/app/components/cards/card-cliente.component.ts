@@ -8,6 +8,10 @@ import { FattureService } from '../../pages/fatture/fatture.service';
   selector: 'app-card-cliente',
   template: `
     <style>
+      * {
+        margin: 10px;
+      }
+
       mat-card-header {
         justify-content: space-around;
       }

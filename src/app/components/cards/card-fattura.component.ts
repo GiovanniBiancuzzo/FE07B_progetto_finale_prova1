@@ -6,6 +6,11 @@ import { FattureService } from '../../pages/fatture/fatture.service';
 @Component({
   selector: 'app-card-fattura',
   template: `
+  <style>
+    * {
+      margin: 10px;
+    }
+  </style>
     <mat-card class="example-card">
       <mat-card-title>Fattura n.{{ fattura.numero }} per </mat-card-title>
       <br>

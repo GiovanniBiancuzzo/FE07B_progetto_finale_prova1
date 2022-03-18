@@ -39,9 +39,9 @@ import { FattureService } from '../fatture/fatture.service';
           <button mat-raised-button color="accent" (click)="print()">
             <mat-icon>print</mat-icon> Stampa
           </button>
-          <button mat-raised-button color="accent" >
-            <mat-icon>edit</mat-icon> Modifica stato </button
-          ><!-- da finire -->
+          <!-- <button mat-raised-button color="accent" >
+            <mat-icon>edit</mat-icon> Modifica stato </button> -->
+          <!-- da finire -->
           <button mat-raised-button color="accent" (click)="onElimina()">
             <mat-icon>delete_forever</mat-icon> Elimina</button
           ><!-- da finire -->

@@ -7,6 +7,11 @@ import { FattureService } from '../../pages/fatture/fatture.service';
 @Component({
   selector: 'app-card-contatti-azienda',
   template: `
+  <style>
+    * {
+      margin: 10px;
+    }
+  </style>
     <mat-card class="example-card">
       <mat-card-title>Contatti</mat-card-title>
       <mat-card-subtitle>Azienda</mat-card-subtitle>

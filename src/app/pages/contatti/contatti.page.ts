@@ -6,6 +6,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContattiPage implements OnInit {
 
+  cliente = {
+    nomeContatto: 'Giovanni',
+    cognomeContatto: 'Biancuzzo',
+    telefonoContatto: 3409047333,
+    emailContatto: 'giovannibiancuzzo@protonmail.com',
+  }
+
   constructor() { }
 
   ngOnInit(): void {
