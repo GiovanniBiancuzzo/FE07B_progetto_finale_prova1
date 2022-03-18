@@ -1,1 +1,189 @@
-<p>crea-cliente works!</p>
+<form  #form="ngForm" (ngSubmit)="onCreaCliente()" id="body">
+  <h1>Crea nuovo cliente</h1>
+
+  <section>
+    <!-- <div> -->
+    <div>
+      <h2>Dettagli cliente</h2>
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Ragione Sociale</mat-label>
+          <input matInput [(ngModel)]="newCliente.ragioneSociale" type="text" required value="ragioneSociale" name="ragioneSociale">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Partita IVA</mat-label>
+          <input matInput [(ngModel)]="newCliente.partitaIva" type="number" required value="partitaIva" name="partitaIva">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput [(ngModel)]="newCliente.email" type="email" required value="email" name="email">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>PEC</mat-label>
+          <input matInput [(ngModel)]="newCliente.pec" type="email" required value="pec" name="pec">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Telefono</mat-label>
+          <input matInput [(ngModel)]="newCliente.telefono" type="tel" required value="telefono" name="telefono">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Tipo cliente:</mat-label>
+          <mat-select [(ngModel)]="newCliente.tipoCliente" value="tipoCliente" name="tipoCliente">
+            <mat-option selected>...</mat-option>
+            <mat-option value="SRL">SRL</mat-option>
+            <mat-option value="SPA">SPA</mat-option>
+            <mat-option value="SAS">SAS</mat-option>
+            <mat-option value="PA">PA</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div>
+      <h2>Dettagli personali</h2>
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Nome</mat-label>
+          <input matInput [(ngModel)]="newCliente.nomeContatto" type="text" value="nomeContatto" name="nomeContatto" >
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Cognome</mat-label>
+          <input matInput [(ngModel)]="newCliente.cognomeContatto" type="text"  value="cognomeContatto" name="cognomeContatto" >
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Telefono Contatto</mat-label>
+          <input matInput [(ngModel)]="newCliente.telefonoContatto" type="tel"  value="telefonoContatto" name="telefonoContatto">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Email Contatto</mat-label>
+          <input matInput [(ngModel)]="newCliente.emailContatto" type="email" value="emailContatto" name="emailContatto">
+        </mat-form-field>
+      </div>
+    </div>
+    <!-- </div> -->
+
+    <div>
+      <h2>Sede operativa</h2>
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Indirizzo</mat-label>
+          <input matInput [(ngModel)]="newCliente.indirizzoSedeOperativa.via" type="text" value="indirizzoSedeOperativa.via" name="indirizzoSedeOperativa.via" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Civico</mat-label>
+          <input matInput [(ngModel)]="newCliente.indirizzoSedeOperativa.civico" type="text"
+            value="indirizzoSedeOperativa.civico" name="indirizzoSedeOperativa.civico" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Cap</mat-label>
+          <input matInput [(ngModel)]="newCliente.indirizzoSedeOperativa.cap" type="number" value="indirizzoSedeOperativa.cap" name="indirizzoSedeOperativa.cap" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Località</mat-label>
+          <input matInput [(ngModel)]="newCliente.indirizzoSedeOperativa.localita" type="text"
+            value="indirizzoSedeOperativa.localita" name="indirizzoSedeOperativa.localita" />
+        </mat-form-field>
+        <!-- <div >
+              <div >
+                <mat-label>Provincia</mat-label>
+                <select class="form-select" [(ngModel)]="
+                    cliente.indirizzoSedeOperativa.comune.provincia
+                  " value="" name="nome" >
+                  <option selected>Seleziona Provincia</option>
+                  <option *ngFor="let item of province" [ngValue]="item">
+                    {{ item.nome }}
+                  </option>
+                </select>
+              </div>
+            </div> -->
+      </div>
+      <!-- <div >
+            <div >
+              <mat-label>Comune</mat-label>
+              <select class="form-select" [(ngModel)]="cliente.indirizzoSedeOperativa.comune" value="" name="nome"
+                >
+                <option selected>Seleziona Comune</option>
+                <option *ngFor="let item of comuni" [ngValue]="item">
+                  {{ item.nome }}
+                </option>
+              </select>
+            </div>
+          </div> -->
+    </div>
+
+    <div>
+      <h2>Sede legale</h2>
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Indirizzo</mat-label>
+          <input matInput [(ngModel)]="newCliente.indirizzoSedeLegale.via" type="text" required value="indirizzoSedeLegale.via" name="indirizzoSedeLegale.via" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Civico</mat-label>
+          <input matInput [(ngModel)]="newCliente.indirizzoSedeLegale.civico" type="text" required
+            value="indirizzoSedeLegale.civico" name="indirizzoSedeLegale.civico" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Cap</mat-label>
+          <input matInput [(ngModel)]="newCliente.indirizzoSedeLegale.cap" type="number" required value="indirizzoSedeLegale.cap" name="indirizzoSedeLegale.cap" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Località</mat-label>
+          <input matInput [(ngModel)]="newCliente.indirizzoSedeLegale.localita" type="text" required
+            value="indirizzoSedeLegale.localita" name="indirizzoSedeLegale.localita" />
+        </mat-form-field>
+      </div>
+      <!-- <div >
+            <div >
+              <mat-mat-label>Provincia</mat-mat-label>
+              <select class="form-select" [(ngModel)]="cliente.indirizzoSedeLegale.comune.provincia" value="" name="nome"
+                >
+                <option selected>Seleziona Provincia</option>
+                <option *ngFor="let item of province" [ngValue]="item">
+                  {{ item.nome }}
+                </option>
+              </select>
+            </div>
+          </div> -->
+      <!-- <div >
+            <div >
+              <mat-mat-label>Comune</mat-mat-label>
+              <select class="form-select" [(ngModel)]="cliente.indirizzoSedeLegale.comune" value="" name="nome"
+                >
+                <option selected>Seleziona Comune</option>
+                <option *ngFor="let item of comuni" [ngValue]="item">
+                  {{ item.nome }}
+                </option>
+              </select>
+            </div>
+          </div> -->
+    </div>
+  </section>
+
+  <div id="buttons">
+    <button mat-flat-button color="accent" type="submit" [disabled]="form.invalid">
+      Modifica
+    </button>
+    <!-- <button mat-flat-button color="accent" type="button"
+      (click)="ripristinaForm()">
+      Ripristina campi
+    </button>
+    <button mat-flat-button color="accent" type="reset">
+      Svuota campi
+    </button> -->
+  </div>
+</form>
