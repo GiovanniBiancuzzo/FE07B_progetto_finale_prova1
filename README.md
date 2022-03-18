@@ -11,9 +11,9 @@
 - login
 - signup
 
-# home (da rifinire)
+# home
 
-# footer (da rifinire)
+# footer 
 
 # elenco utenti
 
