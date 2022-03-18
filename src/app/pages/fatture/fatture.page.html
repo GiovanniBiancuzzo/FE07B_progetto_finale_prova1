@@ -24,7 +24,12 @@
 
       <ng-container matColumnDef="importo">
         <mat-header-cell *matHeaderCellDef> Importo </mat-header-cell>
-        <mat-cell *matCellDef="let fattura"> {{fattura.importo}} </mat-cell>
+        <mat-cell *matCellDef="let fattura"> {{fattura.importo | currency : 'EUR'}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="data">
+        <mat-header-cell *matHeaderCellDef> Data </mat-header-cell>
+        <mat-cell *matCellDef="let fattura"> {{fattura.data | date }} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="stato.nome">

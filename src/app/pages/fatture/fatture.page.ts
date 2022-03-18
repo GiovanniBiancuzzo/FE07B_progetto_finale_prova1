@@ -16,7 +16,7 @@ export class FatturePage implements OnInit {
   fatture!: Fattura[];
   pagina: number = 0;
   currentIndex: number = this.pagina;
-  displayedColumns = ['id', 'cliente.ragioneSociale', 'importo', 'stato.nome'];
+  displayedColumns = ['id', 'cliente.ragioneSociale', 'importo', 'data', 'stato.nome'];
 
   data = new Date(); //gestione data in fondo alla pagina
   ora = `${this.data.getHours()}:${this.data.getMinutes()}:${this.data.getSeconds()}`;
