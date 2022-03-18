@@ -3,7 +3,7 @@
     <app-card-cliente id="cliente"></app-card-cliente>
     <div>
       <button mat-raised-button color="accent" (click)="mostraFatture(clienteId)">Mostra fatture</button>
-      <button mat-raised-button color="accent" [routerLink]="['/clienti/crea', clienteId]">Crea fattura</button>
+      <button mat-raised-button color="accent" [routerLink]="['/fatture/crea']"  >Crea fattura</button>
       <button mat-raised-button color="accent" [routerLink]="['/clienti/modifica', clienteId]">Modifica
         anagrafica</button><!-- creare un dialog -->
       <button mat-raised-button color="warn" (click)="deleteAll()">Elmina cliente (e relative fatture)</button>

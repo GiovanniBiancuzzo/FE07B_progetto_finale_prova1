@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DialogEliminaFattureComponent } from '../../components/dialog/dialog-elimina-fatture.component';
@@ -8,10 +8,12 @@ import { ClientiService } from '../clienti/clienti.service';
 import { FattureService } from '../fatture/fatture.service';
 
 @Component({
+  selector: 'dettagli-cliente',
   templateUrl: './dettagli-cliente.page.html',
   styleUrls: ['./dettagli-cliente.page.scss'],
 })
 export class DettagliClientePage implements OnInit {
+
   clienteId!: number;
   fatture!: Fattura[];
   pagina: number = 0;
