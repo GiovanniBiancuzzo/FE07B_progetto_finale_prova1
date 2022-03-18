@@ -39,7 +39,7 @@
 - caricamenti per elenco fatture, clienti e utenti
 
 
-# da implementare
+# da implementare o non completati
 - creazione fattura
 - crea cliente
 - dopo il login, la barra di navigazione non si aggiorna correttamente mostrando le pagine accessibili, serve refresh della pagina
