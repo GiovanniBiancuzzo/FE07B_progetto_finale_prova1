@@ -1,5 +1,4 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
-import { Cliente } from 'src/app/models/cliente';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   templateUrl: './contatti.page.html',
