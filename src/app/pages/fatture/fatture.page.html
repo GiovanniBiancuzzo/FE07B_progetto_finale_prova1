@@ -1,1 +1,76 @@
-<p>fatture works!</p>
+<div id="header">
+  <h1>Elenco fatture</h1>
+  <!-- <button (click)="creaFattura()" color="accent" mat-flat-button><mat-icon>add</mat-icon> Crea fattura</button> -->
+</div>
+
+<div id="filtri">
+  <p>aggiungere filtri per ricerca: non pagate, pagate, per cliente?</p>
+</div>
+
+<div *ngIf="fatture;else caricamento">
+  <table>
+    <mat-table [dataSource]="fatture" class="mat-elevation-z8">
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+        <mat-cell matTooltip="Vai alla fattura" [matTooltipPosition]="'left'" *matCellDef="let fattura"
+          [routerLink]="['/fatture', fattura.id]"> {{fattura.id}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="cliente.ragioneSociale">
+        <mat-header-cell *matHeaderCellDef> Ragione Sociale </mat-header-cell>
+        <mat-cell matTooltip="Vai al cliente" [matTooltipPosition]="'left'" *matCellDef="let fattura"
+          [routerLink]="['/clienti', fattura.cliente.id]"> {{fattura.cliente.ragioneSociale}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="importo">
+        <mat-header-cell *matHeaderCellDef> Importo </mat-header-cell>
+        <mat-cell *matCellDef="let fattura"> {{fattura.importo}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="stato.nome">
+        <mat-header-cell *matHeaderCellDef> Stato </mat-header-cell>
+        <mat-cell matTooltip="Modifica lo stato" [matTooltipPosition]="'right'" *matCellDef="let fattura">
+          <mat-form-field>
+            <mat-label>{{fattura.stato.nome}}</mat-label>
+            <mat-select select (valueChange)="onModificaStato($event, fattura)" name="stato" id="stato">
+              <mat-option value="{{fattura.stato.id}}">
+                <mat-icon>edit</mat-icon>{{fattura.stato.nome}}
+              </mat-option>
+              <mat-option *ngIf="fattura.stato.id == 1" value="2">
+                <mat-icon>edit</mat-icon>PAGATA
+              </mat-option>
+              <mat-option *ngIf="fattura.stato.id == 2" value="1">
+                <mat-icon>edit</mat-icon>NON PAGATA
+              </mat-option>
+              <mat-option value="3">
+                <mat-icon>delete_forever</mat-icon>ELIMINA
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </table>
+
+
+
+
+
+  <div id="navigation">
+    <!-- sistemare prima e ultima pagina -->
+    <!-- <button mat-raised-button color="accent" (click)="indietroPagina()">Prima pagina</button> -->
+    <button mat-raised-button color="accent" (click)="indietroPagina()" *ngIf="currentIndex">Pagina precedente</button>
+    <button mat-raised-button color="accent" (click)="avanzaPagina()">Pagina successiva</button>
+    <!-- <button mat-raised-button color="accent" (click)="avanzaPagina()">Ultima pagina</button> -->
+  </div>
+
+  <section><em>Aggiornato alle {{ora}} del {{giorno}}</em></section>
+</div>
+
+
+<ng-template #caricamento>
+  <div id="caricamento"><mat-spinner color="accent"></mat-spinner></div>
+</ng-template>

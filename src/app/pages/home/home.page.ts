@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
 
+  user = localStorage.getItem('user');
   constructor() { }
 
   ngOnInit(): void {

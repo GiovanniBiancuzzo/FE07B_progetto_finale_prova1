@@ -1,0 +1,28 @@
+#body {
+  min-height: 88vh;
+}
+#body>h1 {
+  text-align: center;
+  padding-top: 2vh;
+}
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 3vw;
+  padding: 10px;
+}
+
+// section>div {
+//   display: flex;
+//   flex-direction: row;
+//   flex-wrap: wrap;
+// }
+
+#buttons {
+  max-width: 70%;
+  margin: auto auto 2vh;
+  display: flex;
+  justify-content: space-evenly;
+}

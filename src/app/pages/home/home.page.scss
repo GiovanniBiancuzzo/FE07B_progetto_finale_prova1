@@ -1,0 +1,24 @@
+section {
+  display: flex;
+  justify-content: space-evenly;
+  height: 88vh;
+  flex-wrap: wrap;
+  align-content: space-around;
+}
+
+h1 {
+  font-size: 4vw;
+  display: flex;
+  justify-content: center;
+  flex-basis: 100%;
+}
+
+#clienti {
+  display: flex;
+  flex-direction: row-reverse;
+  text-align: end;
+}
+
+img {
+  cursor: pointer;
+}

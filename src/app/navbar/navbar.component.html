@@ -1,11 +1,43 @@
-<p>navbar works!</p>
-<nav>
-  <ul>
-    <li [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</li>
-    <li [routerLink]="['/login']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">login</li>
-    <li [routerLink]="['/signup']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">signup</li>
-    <li [routerLink]="['/utenti']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">utenti</li>
-    <li [routerLink]="['/fatture']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">fatture</li>
-    <li [routerLink]="['/clienti']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">clienti</li>
-  </ul>
-</nav>
+<mat-accordion>
+  <mat-expansion-panel class="mat-app-background">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon>menu</mat-icon>
+      </mat-panel-title>
+      <mat-panel-title>
+        Epicode Invoice Manager
+      </mat-panel-title>
+
+
+
+    </mat-expansion-panel-header>
+    <ul>
+      <ng-container *ngIf="user, else elseTemplate">
+        <li (click)="accordion.closeAll()" [routerLink]="['/']" routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact:true}">Home</li>
+        <li (click)="accordion.closeAll()" [routerLink]="['/utenti']" routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact:true}">Utenti</li>
+        <li (click)="accordion.closeAll()" [routerLink]="['/fatture']" routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact:true}">Fatture</li>
+        <li (click)="accordion.closeAll()" [routerLink]="['/clienti']" routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact:true}">Clienti</li>
+        <li (click)="accordion.closeAll()" [routerLink]="['/contatti']" routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact:true}">Contatti</li>
+        <li (click)="onLogout()" [routerLink]="['/']" routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact:true}">Logout</li>
+      </ng-container>
+      <ng-template #elseTemplate>
+        <li (click)="accordion.closeAll()" [routerLink]="['/login']" routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact:true}">Login</li>
+        <li (click)="accordion.closeAll()" [routerLink]="['/signup']" routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact:true}">Signup</li>
+      </ng-template>
+      <!-- <mat-icon class="mr-8">brightness_5</mat-icon>
+  <mat-slide-toggle [formControl]="toggleControl" class="mr-8">
+  </mat-slide-toggle>
+  <mat-icon>bedtime</mat-icon>
+    pulsante tema scuro-->
+
+    </ul>
+  </mat-expansion-panel>
+</mat-accordion>
