@@ -14,7 +14,7 @@ export class LoginPage implements OnInit {
   hide = true;
   usernameVal = new FormControl('', [Validators.required]);
   passwordVal = new FormControl('', [Validators.required]);
-  loginForm = new FormGroup ({
+  form = new FormGroup ({
     username: new FormControl(''),
     password: new FormControl(''),
   })

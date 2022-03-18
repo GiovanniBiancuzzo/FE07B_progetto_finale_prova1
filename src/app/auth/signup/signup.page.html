@@ -1,43 +1,47 @@
 <div id="signup">
   <form #form="ngForm" (ngSubmit)="onSignup(form)">
-    <mat-form-field appearance="fill">
-      <mat-label>Nome</mat-label>
-      <input matInput placeholder="Nome" name="nome"  ngModel id="nome" type="text">
-    </mat-form-field>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Nome</mat-label>
+        <input matInput placeholder="Nome" name="nome" ngModel id="nome" type="text">
+      </mat-form-field>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Cognome</mat-label>
-      <input matInput placeholder="Cognome" name="cognome" ngModel id="cognome" type="text">
-    </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Cognome</mat-label>
+        <input matInput placeholder="Cognome" name="cognome" ngModel id="cognome" type="text">
+      </mat-form-field>
+    </div>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Username</mat-label>
-      <input matInput placeholder="Username" name="username" required ngModel id="username" type="text">
-    </mat-form-field>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="Username" name="username" required ngModel id="username" type="text">
+      </mat-form-field>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Email</mat-label>
-      <input matInput placeholder="email@example.com" name="email" required ngModel id="email" type="email" />
-    </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="email@example.com" name="email" required ngModel id="email" type="email" />
+      </mat-form-field>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Password</mat-label>
-      <input matInput [type]="hide ? 'password' : 'text'" name="password" required ngModel id="password"
-        type="password">
-      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-        [attr.aria-pressed]="hide">
-        <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
-      </button>
-    </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" name="password" required ngModel id="password"
+          type="password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+      </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Ruolo</mat-label>
-      <mat-select select name="roles" id="roles" required ngModel>
-        <mat-option value="ROLE_ADMIN">Amministratore</mat-option>
-        <mat-option value="ROLE_USER">Utente</mat-option>
-      </mat-select>
-    </mat-form-field>
-
+      <mat-form-field appearance="outline">
+        <mat-label>Ruolo</mat-label>
+        <mat-select select name="roles" id="roles" required ngModel>
+          <mat-option value="ROLE_ADMIN">Amministratore</mat-option>
+          <mat-option value="ROLE_USER">Utente</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    
     <button mat-raised-button color="accent" type="submit" [disabled]="form.invalid" class="btn btn-primary mt-4">
       Registrati
       <span *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status"></span>

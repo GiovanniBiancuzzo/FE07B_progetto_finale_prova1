@@ -1,13 +1,25 @@
 #signup {
-  min-height: 86vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 88vh;
 }
 
 form,
 p {
-  margin: 20px;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
+  border: 1px solid grey;
+  border-radius: 5px;
+  max-width:fit-content;
+  padding: 10px;
+  margin: 20px;
+}
+
+form>div {
+  text-align: center;
 }
 
 
