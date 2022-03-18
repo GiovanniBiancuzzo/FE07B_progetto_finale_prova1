@@ -6,6 +6,13 @@ section {
   align-content: space-around;
 }
 
+h1 {
+  font-size: 4vw;
+  display: flex;
+  justify-content: center;
+  flex-basis: 100%;
+}
+
 #clienti {
   display: flex;
   flex-direction: row-reverse;
