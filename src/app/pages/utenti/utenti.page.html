@@ -7,45 +7,52 @@
   <p>aggiungere filtri per ricerca: admin o user</p>
 </div>
 
-<table>
-  <mat-table [dataSource]="utenti" class="mat-elevation-z8">
-    <ng-container matColumnDef="id">
-      <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
-      <mat-cell *matCellDef="let utente"> {{utente.id}} </mat-cell>
-    </ng-container>
+<div *ngIf="utenti;else caricamento">
+  <table>
+    <mat-table [dataSource]="utenti" class="mat-elevation-z8">
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+        <mat-cell *matCellDef="let utente"> {{utente.id}} </mat-cell>
+      </ng-container>
 
-    <ng-container matColumnDef="nomeCognome">
-      <mat-header-cell *matHeaderCellDef> Nome completo </mat-header-cell>
-      <mat-cell *matCellDef="let utente">{{utente.nome}} {{utente.cognome}}</mat-cell>
-    </ng-container>
+      <ng-container matColumnDef="nomeCognome">
+        <mat-header-cell *matHeaderCellDef> Nome completo </mat-header-cell>
+        <mat-cell *matCellDef="let utente">{{utente.nome}} {{utente.cognome}}</mat-cell>
+      </ng-container>
 
-    <ng-container matColumnDef="username">
-      <mat-header-cell *matHeaderCellDef> Username </mat-header-cell>
-      <mat-cell *matCellDef="let utente">{{utente.username}}</mat-cell>
-    </ng-container>
+      <ng-container matColumnDef="username">
+        <mat-header-cell *matHeaderCellDef> Username </mat-header-cell>
+        <mat-cell *matCellDef="let utente">{{utente.username}}</mat-cell>
+      </ng-container>
 
-    <ng-container matColumnDef="email">
-      <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
-      <mat-cell *matCellDef="let utente">{{utente.email}}</mat-cell>
-    </ng-container>
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+        <mat-cell *matCellDef="let utente">{{utente.email}}</mat-cell>
+      </ng-container>
 
-    <ng-container matColumnDef="roles.roleName">
-      <mat-header-cell *matHeaderCellDef> Ruolo </mat-header-cell>
-      <mat-cell *matCellDef="let utente">{{utente.roles[0].roleName}}</mat-cell>
-    </ng-container>
+      <ng-container matColumnDef="roles.roleName">
+        <mat-header-cell *matHeaderCellDef> Ruolo </mat-header-cell>
+        <mat-cell *matCellDef="let utente">{{utente.roles[0].roleName | ruoli}}</mat-cell>
+      </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
-</table>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </table>
 
 
-<div id="navigation">
-  <!-- sistemare prima e ultima pagina -->
-  <!-- <button mat-raised-button color="accent" (click)="indietroPagina()">Prima pagina</button> -->
-  <button mat-raised-button color="accent" (click)="indietroPagina()" *ngIf="currentIndex">Pagina precedente</button>
-  <button mat-raised-button color="accent" (click)="avanzaPagina()">Pagina successiva</button>
-  <!-- <button mat-raised-button color="accent" (click)="avanzaPagina()">Ultima pagina</button> -->
+  <div id="navigation">
+    <!-- sistemare prima e ultima pagina -->
+    <!-- <button mat-raised-button color="accent" (click)="indietroPagina()">Prima pagina</button> -->
+    <button mat-raised-button color="accent" (click)="indietroPagina()" *ngIf="currentIndex">Pagina precedente</button>
+    <button mat-raised-button color="accent" (click)="avanzaPagina()">Pagina successiva</button>
+    <!-- <button mat-raised-button color="accent" (click)="avanzaPagina()">Ultima pagina</button> -->
+  </div>
+
+  <section><em>Aggiornato alle {{ora}} del {{giorno}}</em></section>
+
 </div>
 
-<section><em>Aggiornato alle {{ora}} del {{giorno}}</em></section>
+<ng-template #caricamento>
+  <div id="caricamento"><mat-spinner color="accent"></mat-spinner></div>
+</ng-template>
