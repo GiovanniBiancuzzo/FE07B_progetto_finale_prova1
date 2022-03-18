@@ -3,10 +3,6 @@
   <button [routerLink]="['/clienti/crea']" color="accent" mat-flat-button><mat-icon>add</mat-icon> Crea cliente</button>
 </div>
 
-<div id="filtri">
-  <!-- aggiungere filtri per ricerca: non pagate, pagate, per cliente? -->
-</div>
-
 <div *ngIf="clienti;else caricamento">
   <table>
     <mat-table [dataSource]="clienti" class="mat-elevation-z8">
