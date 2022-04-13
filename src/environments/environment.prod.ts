@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
   pathApi:'//epicode.online/epicodebeservice_v2',
-  myToken: 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY0Nzk2NjQ1NSwiZXhwIjoxNjQ4ODMwNDU1fQ.uCGas2NGvuCHvROYdoYvAmlz5Pq2iRQ5RLLd1lALWVQ6gG70MN8-u7hENGO6x0Rr4DnQEgZnWRcWsvmklpPxnw',
+  myToken: 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY0OTg1OTA2NywiZXhwIjoxNjUyMDA2NTUxfQ.NHq0u9QOpiDzPLicuTIRaFKK-Fupuu5sSBvaP-u6b6HKnkvOm-iERow-eYWDvVbcWFyFGHRh6TV5KLXyog_kJQ',
   tenantID: 'fe_0721b'
 };
